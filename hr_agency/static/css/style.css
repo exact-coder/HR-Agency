@@ -1,7 +1,22 @@
-/* body{
-    background-image: liner-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3),url('http://127.0.0.1:8000/static/img/HR-Background.jpg'));
-    background-position: center 0px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-} */
+
+html,body{
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+#footer,
+.push{
+    height: 50px;
+}
+#navbar-content {
+    text-align: center;
+    color: #fff;
+    margin-left: 5rem;
+}

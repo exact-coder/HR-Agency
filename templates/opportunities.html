@@ -1,5 +1,16 @@
 {% extends "base.html" %} {% load static %}
 {% block title %} HR Opportunities {% endblock title %}
+
+{% block navbar-content %}
+    <img style="height:2.5rem;width:3rem;margin-left:3rem;color:#02a9f5;"  src="{% static "img/favicon.png" %}" alt="logo"> <span class="fw-semibold" style="color:#02a9f5;">Opportunities</span>
+{% endblock navbar-content %}
+
+{% block link %}
+    <a href="{% url "home" %}" class="me-5 fs-5" title="Go back">
+        <i class="text-info fas fa-angle-double-left"></i>
+    </a>
+{% endblock link %}
+
 {% block content %}
 
 <h1 class="text-center text-danger">This is Opportunities Page</h1>

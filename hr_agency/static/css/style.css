@@ -15,8 +15,22 @@ html,body{
 .push{
     height: 50px;
 }
-#navbar-content {
+#navbar-content{
     text-align: center;
-    color: #fff;
-    margin-left: 5rem;
+    color: #02a9f5;
+}
+.block-position{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50% ,-70%);
+    text-align: center;
+}
+#btn-job{
+    width: 230px;
+    font-size: 18px;
+    border-radius: 30px;
+    margin-bottom: -50px;
 }

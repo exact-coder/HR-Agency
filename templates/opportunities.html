@@ -2,7 +2,7 @@
 {% block title %} HR Opportunities {% endblock title %}
 
 {% block navbar-content %}
-    <img style="height:2.5rem;width:3rem;margin-left:3rem;color:#02a9f5;"  src="{% static "img/favicon.png" %}" alt="logo"> <span class="fw-semibold" style="color:#02a9f5;">Opportunities</span>
+    <img style="height:2.5rem;width:3rem;margin-left:3rem;color:#02a9f5;"  src="{% static "img/favicon.png" %}" alt="logo"> <span class="fw-semibold text-info">Opportunities</span>
 {% endblock navbar-content %}
 
 {% block link %}
@@ -13,5 +13,72 @@
 
 {% block content %}
 
-<h1 class="text-center text-danger">This is Opportunities Page</h1>
+    <div class="container mt-4" style="width:80%;">
+        <div class="justify-content-center align-items-center row">
+            <h6 class="btn btn-info" style="width: 100%;cursor: default;">
+                <strong style="color:#fff;">AVAILABLE JOB OPPORTUNITIES</strong>
+            </h6>
+            <div class="shadow-lg card p-4 mt-3" style="background-color: rgba(0,0,0,0.5);">
+                <div class="row">
+
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
+                        <div class="card" style="background-color: transparent;">
+                            <button class="btn btn-outline-info btn-lg jobs">
+                            <i class="fab fa-react fa-5x">
+                            </i><br><br> <strong>Front End</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
+                        <div class="card" style="background-color: transparent;">
+                            <button class="btn btn-outline-info btn-lg jobs">
+                            <i class="fab fa-python fa-5x">
+                            </i><br><br> <strong>Back End</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
+                        <div class="card" style="background-color: transparent;">
+                            <button class="btn btn-outline-info btn-lg jobs">
+                            <i class="fab fa-bitcoin fa-5x">
+                            </i><br><br> <strong>Block Chain</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
+                        <div class="card" style="background-color: transparent;">
+                            <button class="btn btn-outline-info btn-lg jobs">
+                            <i class="fab fa-node-js fa-5x">
+                            </i><br><br> <strong>Full Stack</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
+                        <div class="card" style="background-color: transparent;">
+                            <button class="btn btn-outline-info btn-lg jobs">
+                            <i class="fas fa-database fa-5x"></i>
+                            </i><br><br> <strong>Database</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
+                        <div class="card" style="background-color: transparent;">
+                            <button class="btn btn-outline-light btn-lg jobs" disabled>
+                            <i class="fas fa-file-code fa-5x">
+                            </i><br><br> <strong>Intern (Closed)</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock content %}

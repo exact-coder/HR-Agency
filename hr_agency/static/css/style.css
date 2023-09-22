@@ -34,3 +34,10 @@ html,body{
     border-radius: 30px;
     margin-bottom: -50px;
 }
+.side-label{
+    width: 5rem;
+}
+
+.btn-cancel, .btn-send {
+    width: 70px;
+}

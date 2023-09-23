@@ -16,6 +16,7 @@
 </head>
 <body>
     <div class="wrapper"> {% comment %} START // wrapper {% endcomment %}
+        <div id="payloader"></div>
 
         <style>
             body{
@@ -66,9 +67,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     {% comment %} Jquery CDN {% endcomment %}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    {% comment %} Typed JS Effect CDN {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js" integrity="sha512-hIlMpy2enepx9maXZF1gn0hsvPLerXoLHdb095CmRY5HG3bZfN7XPBZ14g+TUDH1aGgfLyPHmY9/zuU53smuMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {% comment %} Typed Effect Control {% endcomment %}
+    <script>
+        let typed = new Typed('#homeTitle', {
+            strings: [
+                'are working for you.',
+                'offer you the best job.',
+                'work with world class IT institution.',
+                'are happy to see you.',
+            ],
+            typeSpeed:70,
+            backSpeed: 50,
+            backDelay: 3000,
+            loop: true,
+        })
+    </script>
 </body>
 </html>
 
 
 
-{% comment %} len is 02.28min {% endcomment %}
+{% comment %} len is 02.50min {% endcomment %}

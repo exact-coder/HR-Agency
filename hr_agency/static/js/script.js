@@ -6,7 +6,7 @@ FULL VALIDATION FORM
 $(document).ready(function() {
     $(".phone").inputmask("(+999) 999999-99999", {"onincomplete": function() {
         $(".phone").val("");
-        swal("Opss!","Incomplete phone. Please review !", "info");
+        swal("Opss!","Incomplete Phone. Please review !", "info");
         return false;
     }});
 });
@@ -31,12 +31,21 @@ function validateForm() {
         swal("Opss !","Name field cannot be empty.","error");
         return false;
     }
+    else if(name.split(' ').length < 2){
+        swal("Opss !","Your Fullname is required.","info");
+        return false;
+    }
     else if(age == ""){
         swal("Opss !","Age field cannot be empty.","error");
         return false;
     }
     else if(email == ""){
         swal("Opss !","Email field cannot be empty.","error");
+        return false;
+    }
+    else if(!(validateEmail(email))){
+        document.getElementById('email').value="";
+        swal("Opss !","Please enter a valid email.","error");
         return false;
     }
     else if(phone == ""){
@@ -74,3 +83,27 @@ regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
 4) Only numbers (age): !/^[0-9]*$/
 */
+
+
+// Typed Effect Control
+let typed = new Typed('#homeTitle', {
+    strings: [
+        'are working for you.',
+        'offer you the best job.',
+        'work with world class IT institution.',
+        'are happy to see you.',
+    ],
+    typeSpeed:150,
+    backSpeed: 100,
+    backDelay: 3000,
+    loop: true,
+})
+
+// Clear the form (inside the modal) when the modal is closed.
+$("#frontendModel,#backendModel,#fullstackModel").on('hidden.bs.modal', function(){
+    $('#frontendModel form')[0].reset();
+    $('#backendModel form')[0].reset();
+    $('#fullstackModel form')[0].reset();
+});
+
+

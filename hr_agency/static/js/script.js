@@ -72,6 +72,40 @@ function validateForm() {
         return true;
     }
 }
+// (2) Clear the form (inside the modal) when the modal is closed.
+$("#frontendModel,#backendModel,#fullstackModel").on("hidden.bs.modal", function(){
+    $('#frontendModel form')[0].reset();
+    $('#backendModel form')[0].reset();
+    $('#fullstackModel form')[0].reset();
+});
+
+
+// (3) Maximum allowed upload size 
+$(document).ready(function() {
+    $("#file").bind("change",function() {
+        let a = (this.files[0].size);
+
+        if(a > 2 * 1048576){
+            swal("Attention !", "Maximum allowed size is 2mb.","info");
+            this.value = "";
+        };    
+    });    
+});
+
+// (4) Allow only letters in Name
+$(".name").keyup(function() {
+    if (!/^[a-zA-Z _]*$/.test(this.value)){
+        this.value = this.value.split(/[^a-zA-Z _]/).join('');
+    }
+});
+
+// (5) Prevent more than 2 white spaces inside the input name
+
+$(".name").on('keydown', function() {
+    let $this =$(this);
+    $(this).val($this.val().replace(/(\s{2,})|[^a-zA-Z0-9_']/g, ' ').replace(/^\s*/,''));
+});
+
 
 /*
 1) Email:
@@ -92,18 +126,10 @@ let typed = new Typed('#homeTitle', {
         'offer you the best job.',
         'work with world class IT institution.',
         'are happy to see you.',
-    ],
+    ],    
     typeSpeed:150,
     backSpeed: 100,
     backDelay: 3000,
     loop: true,
-})
-
-// Clear the form (inside the modal) when the modal is closed.
-$("#frontendModel,#backendModel,#fullstackModel").on('hidden.bs.modal', function(){
-    $('#frontendModel form')[0].reset();
-    $('#backendModel form')[0].reset();
-    $('#fullstackModel form')[0].reset();
-});
-
+})    
 

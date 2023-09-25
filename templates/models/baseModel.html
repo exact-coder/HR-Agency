@@ -9,7 +9,7 @@
             {% block modelTitle %}{% endblock modelTitle %}</h1>
           <button type="button" class="btn-close p-1 bg-light btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="" method="POST" {% block validation %}{% endblock validation %} enctype="multipart/form-data" autocomplete="off">
+        <form {% block action %}{% endblock action %} method="POST" {% block validation %}{% endblock validation %} enctype="multipart/form-data" autocomplete="off">
             {% csrf_token %}
             <div class="modal-body">
 

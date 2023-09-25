@@ -1,0 +1,21 @@
+{{ name }}
+<br>
+
+{{ age }}
+<br>
+
+{{ email }}
+<br>
+
+{{ phone }}
+<br>
+
+{{ address }}
+<br>
+
+{{ experience }}
+<br>
+
+{{ skills }}
+<br>
+

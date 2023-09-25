@@ -1,5 +1,5 @@
 /* --------------------
-FULL VALIDATION FORM
+FULL VALIDATION FORM Using INPUTMASK
 -----------------------*/
 
 // (1) Inputmask (Phone)
@@ -100,11 +100,32 @@ $(".name").keyup(function() {
 });
 
 // (5) Prevent more than 2 white spaces inside the input name
-
 $(".name").on('keydown', function() {
     let $this =$(this);
     $(this).val($this.val().replace(/(\s{2,})|[^a-zA-Z0-9_']/g, ' ').replace(/^\s*/,''));
 });
+
+// (6) Prevent starting with space in all inputs (including textarea)
+$("input[type='text'], textarea").on("keypress", function(e) {
+    if(e.which == 32 && ! this.value.length)
+    e.preventDefault();
+});
+
+// (7) Allow only numbers in Age
+$(".age").keyup(function() {
+    if(!/^[0-9]*$/.test(this.value)){
+        this.value = this.value.split(/[^0-9]/).join('');
+    }
+});
+
+// (8) Script to Lowercase input email
+$(document).ready(function() {
+    $(".email").keyup(function() {
+        this.value = this.value.toLowerCase();
+    });
+});
+
+
 
 
 /*

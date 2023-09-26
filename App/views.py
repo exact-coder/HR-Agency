@@ -29,9 +29,13 @@ def email_frontend(request):
 
         message = template.render(context)
 
-        email = EmailMultiAlternatives(
+        """ email = EmailMultiAlternatives(
             "Frontend - Candidate",message,
             "Frontend Opportunity",['hasanakash799@gmail.com',email]
+        ) """
+        email = EmailMultiAlternatives(
+            "Frontend - Candidate",message,
+            "Frontend Opportunity",['hasanakash799@gmail.com']
         )
         email.content_subtype = "html"
         file = request.FILES['file']

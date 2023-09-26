@@ -62,3 +62,38 @@ html,body{
         opacity: 0;
     }
 }
+
+/* -------------------------
+      CUSTOM SWEETALERT
+---------------------------- */
+.swal-text {
+    text-align: center;
+}
+/* Icon Settings */
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success__hide-corners{
+    background: none !important;
+}
+.swal-icon--success {
+    border-color: #17caf0;
+}
+.swal-icon--success__line {
+    background-color: #17caf0;
+}
+.swal-button{
+    padding: 7px 19px;
+    border-radius: 5px;
+    background-color: #111;
+    font-size: 12px;
+    border: 1px solid #111;
+}
+.swal-button:focus {
+    /* Remove the silver border around the native bottom */
+    box-shadow: none;
+}
+.swal-button:not([disabled]):hover{
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+}

@@ -62,12 +62,19 @@
     </footer>
     {% comment %} Message from backend (success) {% endcomment %}
     {% for message in messages %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
     {% if message.tags == 'success' %}
         {% comment %} Sweet Alert {% endcomment %}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         let mes = "{{ message }}";
         swal("Perfect !!",mes,"success")
+    </script>
+    
+    {% elif message.tags == 'error' %}
+        {% comment %} Sweet Alert {% endcomment %}
+    <script>
+        let mes = "{{ message }}";
+        swal("Sorry !!",mes,"error")
     </script>
     
     {% endif %}
@@ -87,10 +94,9 @@
     {% comment %} Custom JS {% endcomment %}
     <script src="{% static 'js/script.js' %}"></script>
 
-
 </body>
 </html>
 
 
 
-{% comment %} len is 06.40min {% endcomment %}
+{% comment %} len is 07.15min {% endcomment %}

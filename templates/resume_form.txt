@@ -1,0 +1,29 @@
+<body style="background-color: #d3d3d3;" >
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Chango&family=Montserrat:ital,wght@0,300;0,400;1,200&display=swap");
+    </style><br>
+    <center>
+        <div class="" style="background-color: #fff; width: 85%; height: 1200px; border-radius: 5px; margin-top: 50px; font-family: 'Montserrat', sans-serif; ">
+            <br>
+            <p style="font-size:28px; color: #17caf0;font-weight: bold;"> {{name}}</p>
+            <hr style="width: 90%;">
+            <p style="font-size: 18px; text-align: left; margin-left: 40px;"><strong>PERSONAL DATA </strong>&nbsp; &nbsp;</p>
+            <p style="font-size: 15px; text-align: left; margin-left: 40px;"><strong>Age : </strong>{{ age }}</p>
+            <p style="font-size: 15px; text-align: left; margin-left: 40px;"><strong>Phone : </strong>&nbsp;{{ phone }}</p>
+            <p style="font-size: 15px; text-align: left; margin-left: 40px;"><strong>Email : </strong>&nbsp;{{ email }}</p>
+            <p style="font-size: 15px; text-align: left; margin-left: 40px;"><strong>Address : </strong>&nbsp;{{ address }}</p>
+
+            <div style="text-align:left;margin-left:40px;margin-right:35px;">
+                <br>
+                <p style="font-size: 18px;"><strong>EXPERIENCE</strong></p>
+                <textarea rows="15" style="width:100%; border: none; overflow: hidden;"> &nbsp;{{ experience }}</textarea><br><br>
+                <p style="font-size: 18px"><strong>SKILLS </strong></p>
+                <textarea rows="15" style="width:100%; border: none; overflow: hidden;">{{ skills }}</textarea>
+            </div><br><br><br><br>
+            <hr style="color: #d3d3d3; width: 90%;">
+            {% now "m/d/Y (H:i)" %}
+        </div>
+    </center>
+    <br><br><br>
+</body>
+

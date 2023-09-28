@@ -94,9 +94,48 @@
     {% comment %} Custom JS {% endcomment %}
     <script src="{% static 'js/script.js' %}"></script>
 
+    <script>
+        // Ajax Spinner
+
+    jQuery(function($) {
+        $(document).ajaxSend(function() {
+            $("#bg-spinner").fadeIn(500);
+        });
+
+        $(".btn-send").click(function() {
+            $.ajax({
+                type: 'GET',
+                success: function(data) {
+                    let d = $.parseJSON(data);
+                    alert(d.Test);
+                }
+            }).done(function() {
+                setTimeout(function() {
+                    $("#bg-spinner").fadeOut(500);
+                },700);
+            });
+        });
+    });
+    // Close model after send button is clicked
+    $(".btn-send").click(function() {
+        let name = $("#name").val();
+        let age = $("#age").val();
+        let email = $("#email").val();
+        let phone = $("#phone").val();
+        let address = $("#address").val();
+        let experience = $("#experience").val();
+        let skills = $("#skills").val();
+        let file = $("#file").val();
+        
+        if( (name != '') && (age != '') && (email != '') && (phone != '') && (address != '') && (experience != '') && (skills != '') && (file != '')){
+            $('.close-modal').modal('hide');
+        }
+    })
+    </script>
+
 </body>
 </html>
 
 
 
-{% comment %} len is 07.15min {% endcomment %}
+{% comment %} len is 08.10min {% endcomment %}

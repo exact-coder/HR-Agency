@@ -28,18 +28,22 @@ function validateForm() {
     const file = document.getElementById("file").value;
 
     if(name == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Name field cannot be empty.","error");
         return false;
     }
     else if(name.split(' ').length < 2){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Your Fullname is required.","info");
         return false;
     }
     else if(age == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Age field cannot be empty.","error");
         return false;
     }
     else if(email == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Email field cannot be empty.","error");
         return false;
     }
@@ -49,22 +53,27 @@ function validateForm() {
         return false;
     }
     else if(phone == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Phone field cannot be empty.","error");
         return false;
     }
     else if(address == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Address cannot be empty.","error");
         return false;
     }
     else if(experience == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Experience cannot be empty.","error");
         return false;
     }
     else if(skills == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","Skills cannot be empty.","error");
         return false;
     }
     else if(file == ""){
+        document.getElementById("bg-spinner").style.display = "none";
         swal("Opss !","File cannot be empty.","error");
         return false;
     }

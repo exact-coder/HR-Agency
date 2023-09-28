@@ -87,7 +87,7 @@ SPINNER BACKEND AJAX
     width: 60px;
     border-radius: 50%;
     border: 6px #d3d3d3 solid;
-    border-top: 6px #ffc107 solid;
+    border-top: 6px #17caf0 solid;
     animation: loading 1s infinite linear;    
 }
 
@@ -132,3 +132,40 @@ SPINNER BACKEND AJAX
     border: 1px solid #111;
     
 }
+/* --------------------
+Responsive Design
+----------------------- */
+/* Resolution for Tablets */
+@media (max-width: 1024px) {
+    #footer {
+        font-size: 15px;
+    }
+}
+
+/* Resolution for Smartphones */
+@media (max-width: 575px) {
+    #footer {
+        font-size: 12px;
+    }
+    body{
+        overflow-y: visible;
+    }
+    #navbar-content {
+        font-size: 16px;
+        margin-left: 15px;
+    }
+    .typed-text{
+        font-size: 24px;
+    }
+    #btn-job {
+        font-size: 15px;
+        width: 200px;
+    }
+    .jobs{
+        font-size: 13px;
+    }
+    #card-title{
+        font-size: 14px;
+    }
+}
+

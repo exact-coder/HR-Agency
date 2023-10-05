@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block bg-image %}
+<style>
+    body{
+        background-color: #16191c;
+        background-position: center 0px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+{% endblock bg-image %}
+
+<!----- Sidebar Links---->
+{% block sidebar-links %}
+    <a href="{% url "logout" %}" class="btn btn-danger">Logout</a>
+    <hr><br>
+    <center class="mt-5">
+        <i class="fas fa-snowboarding fa-7x" style="color: #4e5154;"></i>
+    </center>
+{% endblock sidebar-links %}
+
+{% block content %}
+    <h1><center class="text-danger m-5">
+        BACKEND PAGE
+    </center></h1>
+{% endblock content %}

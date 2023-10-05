@@ -6,7 +6,7 @@ urlpatterns = [
     path("",home,name="home"),
     path("opportunities/",opportunities,name="opportunities"),
     path("email_frontend/",email_frontend,name="email_frontend"),
-    path('login/',include('django.contrib.auth.urls'),name="login"),
+    path('user/',include('django.contrib.auth.urls'),name="login"),
 
     # ||===============BACKEND SECTION================||
     path('backend/',backend,name='backend')

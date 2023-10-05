@@ -18,6 +18,7 @@
     <div class="wrapper"> {% comment %} START // wrapper {% endcomment %}
         <div id="payloader"></div>
 
+        {% block bg-image %}
         <style>
             body{
                 background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)),url({% static 'img/HR-Background.jpg' %});
@@ -25,6 +26,31 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: cover;
+            }
+        </style>
+        
+        {% endblock bg-image %}
+        <style>
+            .form-check-input:checked {
+                background-color: #02a9f5 !important;
+                box-shadow: 0 0 8px rgba(252, 252, 252,1);
+            }
+            .form-check-input{
+                background-color: #fff !important;
+                box-shadow: 0 0 8px rgba(252, 252, 252,1);
+            }
+            .form-switch .form-check-input:focus {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='grey'/%3e%3c/svg%3e");
+            }
+            .form-control:focus {
+                background-color: #02a9f5 !important;
+                box-shadow: 0 0 8px rgba(252, 252, 252,1);
+                border: #02a9f5 !important;
+            }
+            .btn:focus, .btn-active {
+                outline:none;
+                box-shadow: 0 0 8px rgba(252, 252, 252,1) !important;
+                border: #02a9f5 !important;
             }
         </style>
 
@@ -65,8 +91,9 @@
     </div>
     <div class="offcanvas-body">
         <div class="d-grid gap-2">
+            <!----- Sidebar block---->
             {% block sidebar-links %}
-                <a href="{% url "login" %}" class="btn btn-warning">Login</a>
+                <a href="{% url "login" %}" class="btn btn-info">Login</a>
                 <a href="{% url "backend" %}" class="btn btn-secondary">Faqs</a>
                 <hr>
                 <a href="#" class="btn btn-outline-primary">
@@ -155,12 +182,22 @@
         if( (name != '') && (age != '') && (email != '') && (phone != '') && (address != '') && (experience != '') && (skills != '') && (file != '')){
             $('.close-modal').modal('hide');
         }
-    })
+    });
+    // To show/hide the password
+    function showPass(){
+        let p = document.getElementById("login-password");
+        if(p.type === "password"){
+            p.type = "text";
+        }else{
+            p.type = "password";
+        }
+    }
     </script>
+
 
 </body>
 </html>
 
 
 
-{% comment %} Ep-10 and len is 43.00min {% endcomment %}
+{% comment %} Ep-10 and len is 1.22min {% endcomment %}

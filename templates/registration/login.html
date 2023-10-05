@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Log In Page{% endblock title %}
+
+{% comment %} Sidebar Links {% endcomment %}
+{% block sidebar-links %}
+    <a href="{% url "home" %}" class="btn btn-warning">Home</a>
+    <hr><br>
+    <center>
+        <i class="fas fa-key fa-7x" style="color: #4e5154;"></i>
+    </center>
+{% endblock sidebar-links %}
+
+{% block content %}
+    <h1>This is Login Page</h1>
+    <br>
+    <div class="container">
+        <div class="card p-3">
+            <span class="btn btn-outline-dark mt-3" style="cursor: default;">
+                <i class="fas fa-lock"></i> &nbsp;&nbsp; RESTRICTED ACCESS
+            </span>
+            <form method="POST" autocomplete="off" novalidate>
+                {% csrf_token %}
+                <div class="input-group mb-3 mt-5">
+                    <span class="btn input-group-text border-secondary bg-light">
+                        <i class="fas fa-user-alt"></i>
+                    </span>
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                </div>
+                <div class="input-group mb-3 mt-2">
+                    <span class="btn input-group-text border-secondary bg-light">
+                        <i class="fas fa-user-alt"></i>
+                    </span>
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+            </form>
+        </div>
+    </div> {% comment %} END // Container {% endcomment %}
+{% endblock content %}

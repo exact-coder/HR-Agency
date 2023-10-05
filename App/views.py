@@ -4,9 +4,13 @@ from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
 from .models import Registered_email
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
+
 
 
 # Create your views here.
+# ||================= FRONTEND SECTION ================||
 
 def home(request):
     return render(request,"home.html")
@@ -57,3 +61,12 @@ def email_frontend(request):
             messages.success(request,"Successfully Send. Send a copy to your email also!!")
             return HttpResponseRedirect("/")
     return HttpResponseRedirect("/opportunities")
+
+
+# ||================= BACKEND SECTION ================||
+
+@cache_control(no_cache=True,must_revalidate=True,no_store=True)
+@login_required(login_url="login")
+def backend(request):
+    return render(request, 'backend.html')
+

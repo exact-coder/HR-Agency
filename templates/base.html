@@ -39,6 +39,9 @@
                     </a>
                 </div>
                 {% block link %}
+                <a href="{% url "home" %}" style="margin-right: 25px; font-size: 25px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="fas fa-bars" style="color:#17caf0;"></i>
+                </a>
                 {% endblock link %}
 
             </nav>
@@ -52,6 +55,28 @@
         {% endblock content %}
         
     </div> {% comment %} END // wrapper {% endcomment %}
+
+    <!-- OffCanvas (Sidebar) Start -->
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#212529;color:#fff;">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">MENU</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="background-color:#fff;" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="d-grid gap-2">
+            {% block sidebar-links %}
+                <a href="{% url "login" %}" class="btn btn-warning">Login</a>
+                <a href="{% url "backend" %}" class="btn btn-secondary">Faqs</a>
+                <hr>
+                <a href="#" class="btn btn-outline-primary">
+                    <i class="fas fa-headset"></i> &nbsp;&nbsp; Support
+                </a>
+            {% endblock sidebar-links %}
+        </div>
+    </div>
+    </div>
+    <!----- OffCanvas (Sidebar) End ---->
 
     <footer class="bg-dark text-center text-lg-start" id="footer" style="color: #fff">
         <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">&copy; {% now "Y" %} Copyright :   
@@ -138,4 +163,4 @@
 
 
 
-{% comment %} Ep-10 and len is 00.00min {% endcomment %}
+{% comment %} Ep-10 and len is 43.00min {% endcomment %}

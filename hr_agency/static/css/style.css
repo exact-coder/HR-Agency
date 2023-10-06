@@ -38,7 +38,7 @@ html,body{
     width: 3.5rem;
 }
 
-.btn-cancel, .btn-send {
+.btn-cancel, .btn-send, .btn-modal {
     width: 70px;
 }
 /*---------------------------

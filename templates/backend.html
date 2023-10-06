@@ -23,7 +23,15 @@
 {% endblock sidebar-links %}
 
 {% block content %}
-    <h1><center class="text-danger m-5">
-        BACKEND PAGE
-    </center></h1>
+    <div class="container mt-4" style="width: 95%;">
+        <span style="margin-left: -10px;margin-bottom:12px; color:#fff;">Welcome,
+            <strong><span class="text-danger">{{ user.get_username }}</span>
+            </strong>
+        </span>
+        <div class="justify-content-center align-items-center row mt-3">
+            <h6 class="btn btn-info btn-lg text-sm" style="width:100%;cursor: default;">
+                <strong><i class="fas fa-cog"></i>&nbsp;&nbsp; Control Panel</strong>
+            </h6>
+        </div>
+    </div>
 {% endblock content %}

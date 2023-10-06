@@ -1,0 +1,19 @@
+
+  <!-- Modal -->
+  <div class="modal fade" {% block modal-id %}{% endblock modal-id %} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background: #212529 !important; color:#fff;">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{% block modal-title %}{% endblock modal-title %}</h1>
+          <button type="button" style="background-color:#fff;color:#212529;margin:0px;padding: 3px;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="text-align:center;margin:2px;">
+            {% block modal-body %}{% endblock modal-body %}
+        </div>
+        <div class="modal-footer">
+            {% block btn-action %}{% endblock btn-action %}
+          <button type="button" class="btn btn-light btn-sm btn-modal" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

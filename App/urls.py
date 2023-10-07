@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import home,opportunities,email_frontend,backend
+from .views import home,opportunities,email_frontend,backend,support
 
 urlpatterns = [
     # ||===============FRONTEND SECTION================||
@@ -7,6 +7,7 @@ urlpatterns = [
     path("opportunities/",opportunities,name="opportunities"),
     path("email_frontend/",email_frontend,name="email_frontend"),
     path('user/',include('django.contrib.auth.urls'),name="login"),
+    path("support/",support,name='support'),
 
     # ||===============BACKEND SECTION================||
     path('backend/',backend,name='backend')

@@ -34,3 +34,4 @@ class SupportAdmin(admin.ModelAdmin):
             color = 'red'
         return format_html('<strong><p style="color: {}">{}</p></strong>'.format(color, obj.Situation))
     status.allow_tags = True
+

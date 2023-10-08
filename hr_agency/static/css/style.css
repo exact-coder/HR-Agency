@@ -1,3 +1,22 @@
+/* Scroll Bar */
+
+body{
+    background-color: #F1F1F1;
+    color: #313131;
+}
+body::-webkit-scrollbar{
+    width: 9px;
+    background-color:#E4E4E4;
+}
+body::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color:#02d4fa;
+}
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: #052fad;
+}
+
 
 html,body{
     height: 100%;
@@ -207,4 +226,5 @@ Responsive Design
         overflow: hidden;
     }
 }
+
 

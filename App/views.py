@@ -71,7 +71,7 @@ def support(request):
 
         if Support.objects.filter(email=email).exists():
             messages.info(request,".") #Argument inside the message can't be empty(It's because i put a dot (.))
-            return HttpResponseRedirect('support')
+            return HttpResponseRedirect('/support')
         else:
             support = Support()
 
@@ -89,7 +89,9 @@ def support(request):
 
             support.save()
             messages.success(request, 'We will review your request !')
-            return HttpResponseRedirect('home')
+            return HttpResponseRedirect('/')
+    else:
+        return render(request,"support.html")
 
 
 

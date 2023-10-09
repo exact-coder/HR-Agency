@@ -163,3 +163,7 @@ let typed = new Typed('#homeTitle', {
     loop: true,
 })    
 
+
+
+
+

@@ -14,7 +14,7 @@ body::-webkit-scrollbar-thumb{
 }
 body::-webkit-scrollbar-track{
     border-radius: 10px;
-    background-color: #052fad;
+    background-color: #b8dfe9;
 }
 
 
@@ -264,6 +264,10 @@ Responsive Design
         bottom: 50px;
         right: 12px;
         width: 90%;
+    }
+    .pulse{
+        width: 40px;
+        height: 40px;
     }
 }
 

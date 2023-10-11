@@ -18,6 +18,9 @@ def home(request):
 def opportunities(request):
     return render(request,"opportunities.html")
 
+def faq(request):
+    return render(request,"faq.html")
+
 def email_frontend(request):
     if request.method == "POST":
 

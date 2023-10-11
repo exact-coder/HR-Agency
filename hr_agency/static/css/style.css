@@ -170,6 +170,35 @@ Login Design
     font-weight: 500;
 }
 /* -------------------- 
+PULSE EFFECTS & ICON
+-----------------------*/
+.pulse {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    position: fixed;
+    right: 30px;
+    bottom: 75px;
+    padding:5px;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        box-shadow: 0 0 0 0 rgba(49, 210, 242, .7),0 0 0 0 rgba(49, 210, 242, .7);
+    }
+    40%{
+        box-shadow: 0 0 0 10px rgba(12, 165, 139, 0.7),0 0 0 0 rgba(49, 210, 242, .7);
+    }
+    80%{
+        box-shadow: 0 0 0 20px rgba(6, 143, 148, 0.7),0 0 0 0 rgba(3, 147, 133, 0.7);
+    }
+    100%{
+        box-shadow: 0 0 0 0 rgba(5, 188, 176, 0.7),0 0 0 0 rgba(2, 117, 115, 0.7);
+    }
+}
+
+/* -------------------- 
 Others
 -----------------------*/
 .watermark{

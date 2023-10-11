@@ -163,7 +163,14 @@ let typed = new Typed('#homeTitle', {
     loop: true,
 })    
 
-
+// Dependent select option
+function req(){
+    if(document.getElementById('choose').value != ''){
+        document.getElementById('dependent').disabled= false;
+    }else{
+        document.getElementById('dependent').disabled = true;
+    }
+}
 
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Registered_email,Support
+from .models import Registered_email,Support,Message
 from django.utils.html import format_html
 # Register your models here.
 
@@ -29,6 +29,31 @@ class SupportAdmin(admin.ModelAdmin):
     # Function to color the text (Done - Pending)
     def status(self,obj):
         if obj.Situation == 'Done':
+            color = '#28a745'
+        else:
+            color = 'red'
+        return format_html('<strong><p style="color: {}">{}</p></strong>'.format(color, obj.Situation))
+    status.allow_tags = True
+
+# MESSAGE
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_filter = ['Situation']
+    list_display = ['id','email','text','status','_']
+    list_display_links = ['id','email']
+    list_per_page = 10
+    # Function to change the icons (Done - Pending)
+    def _(self,obj):
+        if obj.Situation == 'Read':
+            return True
+        else:
+            return False
+    _.boolean = True
+
+    # Function to color the text (Done - Pending)
+    def status(self,obj):
+        if obj.Situation == 'Read':
             color = '#28a745'
         else:
             color = 'red'

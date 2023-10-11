@@ -39,3 +39,15 @@ class Support(models.Model):
 
     def __str__(self) -> str:
         return self.person
+
+# 3) MESSAGE
+class Message(models.Model):
+    SITUATION ={
+        ('Unread','Unread'),
+        ('Read','Read'),
+    }
+    id = models.IntegerField(_("ID"),primary_key=True)
+    email = models.EmailField(_("Email"), max_length=55)
+    text = models.TextField(_("Message"))
+    created_at = models.DateTimeField(_("Created"), auto_now=False, auto_now_add=True)
+    Situation = models.CharField(_("Situation"), max_length=50,null=True,blank=True,choices=SITUATION,default='Unread')

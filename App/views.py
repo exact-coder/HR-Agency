@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
-from .models import Registered_email,Support
+from .models import Registered_email,Support,Message
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 
@@ -93,6 +93,21 @@ def support(request):
     else:
         return render(request,"support.html")
 
+# MESSAGE
+def add_message(request):
+    if request.method == "POST":
+        if request.POST.get('email') and request.POST.get('message'):
+            message = Message()
+            message.email = request.POST.get('email')
+            message.text = request.POST.get('message')
+            message.save()
+            messages.success(request, 'Message send successfully !')
+            return HttpResponseRedirect('/')
+        else:
+            messages.warning(request,"All field are required !!")
+            return HttpResponseRedirect('/')
+    else:
+        return render(request,"home.html")
 
 
 # ||================= BACKEND SECTION ================||
@@ -101,4 +116,6 @@ def support(request):
 @login_required(login_url="login")
 def backend(request):
     return render(request, 'backend.html')
+
+
 

@@ -128,7 +128,16 @@
             let msg = "{{ message }}";
             swal("Perfect !!",msg,"success")
         </script>
-        
+    
+        {% endif %}
+    {% endfor %}
+
+    {% for message in messages %}
+        {% if message.tags == 'warning' %}
+            <script>
+                let msg = "{{ message }}";
+                swal("Sorry!",msg,"warning")
+            </script>
         {% endif %}
     {% endfor %}
 

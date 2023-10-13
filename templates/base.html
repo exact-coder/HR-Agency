@@ -72,7 +72,8 @@
 
             </nav>
         </header>
-        <!--Include Modals -->
+        <!--Include Section Start-->
+        <!--Frontend Modals -->
         {% include "models/forms/formFrontend.html" %}
         {% include "models/forms/formBackend.html" %}
         {% include "models/forms/formFullstack.html" %}
@@ -83,7 +84,11 @@
         {% include "models/others/msgForm.html" %}
         {% include "models/others/msgSupport.html" %}
         {% include "models/others/popSupport.html" %}
+        
+        <!-- Backend Modals -->
+        {% include "models/backend/candidates.html" %}
 
+        <!--Include Section End-->
         {% block content %}
         
         {% endblock content %}
@@ -193,62 +198,62 @@
     <script>
         // Ajax Spinner
 
-    jQuery(function($) {
-        $(document).ajaxSend(function() {
-            $("#bg-spinner").fadeIn(500);
-        });
+        jQuery(function($) {
+            $(document).ajaxSend(function() {
+                $("#bg-spinner").fadeIn(500);
+            });
 
-        $(".btn-send").click(function() {
-            $.ajax({
-                type: 'GET',
-                success: function(data) {
-                    let d = $.parseJSON(data);
-                    alert(d.Test);
-                }
-            }).done(function() {
-                setTimeout(function() {
-                    $("#bg-spinner").fadeOut(500);
-                },700);
+            $(".btn-send").click(function() {
+                $.ajax({
+                    type: 'GET',
+                    success: function(data) {
+                        let d = $.parseJSON(data);
+                        alert(d.Test);
+                    }
+                }).done(function() {
+                    setTimeout(function() {
+                        $("#bg-spinner").fadeOut(500);
+                    },700);
+                });
             });
         });
-    });
-    // Close model after send button is clicked
-    $(".btn-send").click(function() {
-        let name = $("#name").val();
-        let age = $("#age").val();
-        let email = $("#email").val();
-        let phone = $("#phone").val();
-        let address = $("#address").val();
-        let experience = $("#experience").val();
-        let skills = $("#skills").val();
-        let file = $("#file").val();
-        
-        if( (name != '') && (age != '') && (email != '') && (phone != '') && (address != '') && (experience != '') && (skills != '') && (file != '')){
-            $('.close-modal').modal('hide');
-        }
+        // Close model after send button is clicked
+        $(".btn-send").click(function() {
+            let name = $("#name").val();
+            let age = $("#age").val();
+            let email = $("#email").val();
+            let phone = $("#phone").val();
+            let address = $("#address").val();
+            let experience = $("#experience").val();
+            let skills = $("#skills").val();
+            let file = $("#file").val();
+            
+            if( (name != '') && (age != '') && (email != '') && (phone != '') && (address != '') && (experience != '') && (skills != '') && (file != '')){
+                $('.close-modal').modal('hide');
+            }
 
-        let name4 = $("#name4").val();
-        let age4 = $("#age4").val();
-        let email4 = $("#email4").val();
-        let phone4 = $("#phone4").val();
-        let address4 = $("#address4").val();
-        let experience4 = $("#experience4").val();
-        let skills4 = $("#skills4").val();
-        let file4 = $("#file4").val();
-        
-        if( (name4 != '') && (age4 != '') && (email4 != '') && (phone4 != '') && (address4 != '') && (experience4 != '') && (skills4 != '') && (file4 != '')){
-            $('.close-modal').modal('hide');
+            let name4 = $("#name4").val();
+            let age4 = $("#age4").val();
+            let email4 = $("#email4").val();
+            let phone4 = $("#phone4").val();
+            let address4 = $("#address4").val();
+            let experience4 = $("#experience4").val();
+            let skills4 = $("#skills4").val();
+            let file4 = $("#file4").val();
+            
+            if( (name4 != '') && (age4 != '') && (email4 != '') && (phone4 != '') && (address4 != '') && (experience4 != '') && (skills4 != '') && (file4 != '')){
+                $('.close-modal').modal('hide');
+            }
+        });
+        // To show/hide the password
+        function showPass(){
+            let p = document.getElementById("login-password");
+            if(p.type === "password"){
+                p.type = "text";
+            }else{
+                p.type = "password";
+            }
         }
-    });
-    // To show/hide the password
-    function showPass(){
-        let p = document.getElementById("login-password");
-        if(p.type === "password"){
-            p.type = "text";
-        }else{
-            p.type = "password";
-        }
-    }
     </script>
 
     <script>

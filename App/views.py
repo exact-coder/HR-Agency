@@ -165,7 +165,8 @@ def add_message(request):
 @cache_control(no_cache=True,must_revalidate=True,no_store=True)
 @login_required(login_url="login")
 def backend(request):
-    return render(request, 'backend.html')
+    total = Registered_email.objects.all().count()
+    return render(request, 'backend.html', {'count': total})
 
 
 

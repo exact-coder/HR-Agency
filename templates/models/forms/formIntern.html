@@ -1,0 +1,24 @@
+{% extends "models/forms/base.html" %}{% load static %}
+
+
+<!--Modal id-->
+{% block modelId %} id="internModel" {% endblock modelId %}
+
+<!--Modal action-->
+{% block action %} action="/email_intern" {% endblock action %}
+
+<!--Modal title-->
+{% block modelTitle %} Intern Opportunity{% endblock modelTitle %}
+
+<!--Form validation-->
+{% block validation %} onsubmit="return validateForm4()" {% endblock validation %}
+
+<!--Input ID-->
+{% block id-name %} id="name4" {% endblock id-name %}
+{% block id-age %} id="age4" {% endblock id-age %}
+{% block id-email %} id="email4" {% endblock id-email %}
+{% block id-phone %} id="phone4" {% endblock id-phone %}
+{% block id-address %} id="address4" {% endblock id-address %}
+{% block id-experience %} id="experience4" {% endblock id-experience %} 
+{% block id-skills %} id="skills4" {% endblock id-skills %}
+{% block id-file %} id="file4" {% endblock id-file %}

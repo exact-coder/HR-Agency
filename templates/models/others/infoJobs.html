@@ -1,0 +1,60 @@
+{% extends "models/others/base.html" %}
+{% load static %}
+
+<!-- Modal Id-->
+{% block modal-id %} id="infoJobsModel" {% endblock modal-id %}
+
+<!-- Modal Title-->
+{% block modal-title %} 
+<img style="height:35px;width:35px;border-radius:12px;" src="{% static "img/exact.png" %}" alt=""> &nbsp;&nbsp; About Opportunities
+{% endblock modal-title %}
+
+<!-- Modal Body-->
+{% block modal-body %}
+    <h6 class="card p-2 border-light">Number of available job oppering</h6>
+    <div class="justify-content-between mt-3 mb-3">
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 col-6">
+                <button class="btn btn-secondary btn-lg mb-3" style="width:100%;">
+                    <i class="fab fa-react fa-3x"></i><br>
+                    <span class="" style="font-size:14px;">Frontend</span>
+                </button>
+                <span>10</span>
+            </div>
+
+            
+            <div class="col-xl-3 col-sm-6 col-6">
+                <button class="btn btn-secondary btn-lg mb-3" style="width:100%;">
+                    <i class="fab fa-python fa-3x"></i><br>
+                    <span class="" style="font-size:14px;">Backend</span>
+                </button>
+                <span>10</span>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-6">
+                <button class="btn btn-secondary btn-lg mb-3" style="width:100%;">
+                    <i class="fab fa-node-js fa-3x"></i><br>
+                    <span class="" style="font-size:14px;">Fullstack</span>
+                </button>
+                <span>10</span>
+            </div>
+
+            <div class="col-xl-3 col-sm-6 col-6">
+                <button class="btn btn-secondary btn-lg mb-3" style="width:100%;">
+                    <i class="fas fa-file-code fa-3x"></i><br>
+                    <span class="" style="font-size:14px;">Intern</span>
+                </button>
+                <span>10</span>
+            </div>
+
+        </div>
+    </div><hr>
+
+    <div class="mt-4 mb-3">
+        <h6 class="card p-2 text-light bg-danger mb-4">Job vacancies will close in :</h6>
+        <span class="text-center" style="font-size: 20px;">03/11/2023 04.25.11</span>
+    </div>
+
+{% endblock modal-body %}
+
+

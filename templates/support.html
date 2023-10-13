@@ -48,6 +48,26 @@
                     <div class="invalid-feedback">You will take responsibility</div>
                 </div>
 
+                {% if user.is_authenticated %}
+                <div class="mb-3">
+                    <select name="person" id="choose" onchange="req()" class="form-select" required>
+                        <option value="Employee">Employee</option>
+                    </select>
+                </div>
+
+                
+                <div class="mb-3">
+                    <select name="option" id="dependent" class="form-select" required>
+                        <option value="">Select a subject </option>
+                        <option value="" disabled></option>
+                        <option value="I lost my account">I lost my account</option>
+                        <option value="My password does not work">My password does not work</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <div class="invalid-feedback">Only one topic</div>
+                </div>
+
+                {% else %}
                 <div class="mb-3">
                     <select name="person" id="choose" onchange="req()" class="form-select" required>
                         <option value="">Who are you ?</option>
@@ -70,6 +90,7 @@
                     </select>
                     <div class="invalid-feedback">Only one topic</div>
                 </div>
+                {% endif %}
                 
                 <div class="mb-4">
                     <input type="email" class="form-control" name="email" maxlength="50" placeholder="Your Email" required>

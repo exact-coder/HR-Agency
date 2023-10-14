@@ -1,0 +1,35 @@
+{% extends "models/backend/base.html" %}
+{% load static %}
+
+<!--Modal ID-->
+{% block modal-id %} id="notepadModal{{notepad.pk}}" {% endblock modal-id %}
+
+<!--Modal title-->
+{% block modal-title %}
+<i class="text-primary fas fa-file-alt"></i> &nbsp;&nbsp; <span class="text-primary">Notepad App</span>
+{% endblock modal-title %}
+
+<!--Modal Form-->
+{% block form %}
+    <form action="{% url "edit_notepad" %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="modal-body">
+            <span class="card p-2 bg-primary text-center text-light mb-3"> {% now "m/d/Y (H:i)" %} </span>
+            <!--ID Hidden-->
+            <input type="hidden" name="id" value="{{ notepad.pk}}" readonly >
+            <!-- Input Title-->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="title" value="{{ notepad.title}}" placeholder="Your title here." >
+            </div>
+            <!-- Textarea-->
+            <div class="form-group">
+                <textarea name="text" id="" rows="10" class="form-control" maxlength="1000" placeholder="Your text here." >{{ notepad.text }}</textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm btn-modal" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-info btn-sm btn-modal" >Save</button>
+        </div>
+    </form>
+{% endblock form %}
+

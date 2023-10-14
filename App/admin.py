@@ -63,5 +63,5 @@ class MessageAdmin(admin.ModelAdmin):
 # Notepad
 @admin.register(Notepad)
 class NotepadAdmin(admin.ModelAdmin):
-    list_display = ['title','text']
+    list_display = ['id','title','text']
     list_display_links = ['title']

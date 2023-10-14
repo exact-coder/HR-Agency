@@ -8,6 +8,7 @@
           <h1 class="modal-title fs-5">{% block modal-title %}{% endblock modal-title %}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color:#fff;color:#212529;margin:0px;padding: 3px;"></button>
         </div>
+        {% block form %}
         <div class="modal-body text-center" style="text-align:center;margin:2px;">
           {% block modal-body %}{% endblock modal-body %}
         </div>
@@ -15,6 +16,7 @@
           <button type="button" class="btn btn-secondary btn-sm btn-modal" data-bs-dismiss="modal">Close</button>
           {% block btn-action %}{% endblock btn-action %}
         </div>
+        {% endblock form %}
       </div>
     </div>
   </div>

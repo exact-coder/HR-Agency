@@ -61,7 +61,7 @@
                     <!--Items-->
                     <div class="col-xl-3 col-sm-6 col-6 p-1">
                         <div class="card" style="background-color: transparent;">
-                            <button class="btn btn-danger btn-lg jobs">
+                            <button class="btn btn-danger btn-lg jobs" >
                                 <i class="fas fa-clock fa-7x"></i><br><br> Countdown
                             </button>
                         </div>
@@ -70,9 +70,12 @@
                     <!--Items-->
                     <div class="col-xl-3 col-sm-6 col-6 p-1">
                         <div class="card" style="background-color: transparent;">
-                            <button class="btn btn-primary btn-lg jobs">
+                        {% for notepad in notepads %}
+                            <button class="btn btn-primary btn-lg jobs"data-bs-toggle="modal" data-bs-target="#notepadModal{{notepad.pk}}">
                                 <i class="fas fa-file-alt fa-7x"></i><br><br> Nodepad
                             </button>
+                            {% include "models/backend/notepad.html" %}
+                        {% endfor %}
                         </div>
                     </div>
 

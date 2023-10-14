@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Registered_email,Support,Message
+from .models import Registered_email,Support,Message,Notepad
 from django.utils.html import format_html
 # Register your models here.
 
@@ -60,3 +60,8 @@ class MessageAdmin(admin.ModelAdmin):
         return format_html('<strong><p style="color: {}">{}</p></strong>'.format(color, obj.Situation))
     status.allow_tags = True
 
+# Notepad
+@admin.register(Notepad)
+class NotepadAdmin(admin.ModelAdmin):
+    list_display = ['title','text']
+    list_display_links = ['title']

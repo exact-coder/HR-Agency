@@ -51,3 +51,12 @@ class Message(models.Model):
     text = models.TextField(_("Message"))
     created_at = models.DateTimeField(_("Created"), auto_now=False, auto_now_add=True)
     Situation = models.CharField(_("Situation"), max_length=50,null=True,blank=True,choices=SITUATION,default='Unread')
+
+# 4) NODEPAD
+class Notepad(models.Model):
+    id = models.IntegerField(_("ID"),primary_key=True)
+    title = models.CharField(_("Title"), max_length=80)
+    text = models.TextField(_("Text"))
+
+    def __str__(self) -> str:
+        return self.title

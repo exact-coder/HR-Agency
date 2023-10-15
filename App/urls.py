@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import home,opportunities,email_frontend,email_intern,backend,support,add_message,faq,edit_notepad
+from .views import home,opportunities,email_frontend,email_intern,backend,support,add_message,faq,edit_notepad,edit_vacancies
 
 urlpatterns = [
     # ||===============FRONTEND SECTION================||
@@ -15,4 +15,5 @@ urlpatterns = [
     # ||===============BACKEND SECTION================||
     path('backend/',backend,name='backend'),
     path('edit_notepad/',edit_notepad,name='edit_notepad'),
+    path('edit_vacancies/',edit_vacancies,name='edit_vacancies'),
 ]

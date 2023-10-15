@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Registered_email,Support,Message,Notepad
+from .models import Registered_email,Support,Message,Notepad,Vacancies
 from django.utils.html import format_html
 # Register your models here.
 
@@ -65,3 +65,8 @@ class MessageAdmin(admin.ModelAdmin):
 class NotepadAdmin(admin.ModelAdmin):
     list_display = ['id','title','text']
     list_display_links = ['title']
+
+# Vacancies
+@admin.register(Vacancies)
+class VacanciesAdmin(admin.ModelAdmin):
+    list_display = ['id','frontend','backend','fullstack','intern']

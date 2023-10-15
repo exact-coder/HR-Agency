@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
-from .models import Registered_email,Support,Message,Notepad
+from .models import Registered_email,Support,Message,Notepad,Vacancies
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 
@@ -16,7 +16,8 @@ def home(request):
     return render(request,"home.html")
 
 def opportunities(request):
-    return render(request,"opportunities.html")
+    myJob = Vacancies.objects.all()
+    return render(request,"opportunities.html",{'vacancies':myJob})
 
 def faq(request):
     return render(request,"faq.html")
@@ -173,7 +174,8 @@ def add_message(request):
 def backend(request):
     total = Registered_email.objects.all().count()
     myNote = Notepad.objects.all()
-    return render(request, 'backend.html', {'count': total,'notepads': myNote})
+    myjobs = Vacancies.objects.all()
+    return render(request, 'backend.html', {'count': total,'notepads': myNote, 'vacancies':myjobs})
 
 # Nodepad
 @cache_control(no_cache=True,must_revalidate=True,no_store=True)
@@ -188,3 +190,17 @@ def edit_notepad(request):
             messages.success(request, 'Notepad updated successfully !')
             return HttpResponseRedirect('/backend')
 
+# Vacancies
+@cache_control(no_cache=True,must_revalidate=True,no_store=True)
+@login_required(login_url="login")
+def edit_vacancies(request):
+    if request.nethod == "POST":
+        vacancy = Vacancies.objects.get(id = request.POST.get('id'))
+        if vacancy != None:
+            vacancy.frontend = request.POST.get('frontend')
+            vacancy.backend = request.POST.get('backend')
+            vacancy.fullstack = request.POST.get('fullstack')
+            vacancy.intern = request.POST.get('intern')
+            vacancy.save()
+            messages.success(request, 'Job vacancies updated successfully !')
+            return HttpResponseRedirect('/backend')

@@ -194,7 +194,7 @@ def edit_notepad(request):
 @cache_control(no_cache=True,must_revalidate=True,no_store=True)
 @login_required(login_url="login")
 def edit_vacancies(request):
-    if request.nethod == "POST":
+    if request.method == "POST":
         vacancy = Vacancies.objects.get(id = request.POST.get('id'))
         if vacancy != None:
             vacancy.frontend = request.POST.get('frontend')

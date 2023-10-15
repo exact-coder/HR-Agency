@@ -1,0 +1,74 @@
+{% extends "models/backend/base.html" %}
+{% load static %}
+
+<!--Modal ID-->
+{% block modal-id %} id="vacanciesModal{{vacancy.pk}}" {% endblock modal-id %}
+
+<!--Modal title-->
+{% block modal-title %}
+<i class="text-warning fas fa-users"></i> &nbsp;&nbsp; <span class="text-warning">opportunities</span>
+{% endblock modal-title %}
+
+<!--Modal Form-->
+{% block form %}
+    <form action="{% url "edit_vacancies" %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="modal-body">
+            <span class="card p-2 bg-warning text-center text-light mb-3" style="width: 100%;">
+                Number of jobs Opportunities
+            </span>
+            <!--ID Hidden-->
+            <input type="hidden" name="id" value="{{ vacancy.pk}}" readonly >
+            <div class="justify-content-between mt-3 mb-3">
+                <div class="row">
+                    <!-- Frontend -->
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <button class="btn btn-secondary btn-lg" style="width:100%;cursor: default;">
+                            <i class="fab fa-react fa-3x"></i><br>
+                            <span style="font-size:14px;">Frontend</span>
+                        </button>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control text-center mt-2" name="frontend" value="{{ vacancy.frontend }}" >
+                        </div>
+                    </div>
+                    <!-- Backend -->
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <button class="btn btn-secondary btn-lg" style="width:100%;cursor: default;">
+                            <i class="fab fa-python fa-3x"></i><br>
+                            <span style="font-size:14px;">Backend</span>
+                        </button>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control text-center mt-2" name="backend" value="{{ vacancy.backend }}" >
+                        </div>
+                    </div>
+                    <!-- Fullstack -->
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <button class="btn btn-secondary btn-lg" style="width:100%;cursor: default;">
+                            <i class="fab fa-node-js fa-3x"></i><br>
+                            <span style="font-size:14px;">Fullstack</span>
+                        </button>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control text-center mt-2" name="fullstack" value="{{ vacancy.fullstack }}" >
+                        </div>
+                    </div>
+                    <!-- Intern -->
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <button class="btn btn-secondary btn-lg" style="width:100%;cursor: default;">
+                            <i class="fas fa-file-code fa-3x"></i><br>
+                            <span style="font-size:14px;">Intern</span>
+                        </button>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control text-center mt-2" name="intern" value="{{ vacancy.intern }}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm btn-modal" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-outline-info btn-sm btn-modal" >Save</button>
+        </div>
+    </form>
+{% endblock form %}
+

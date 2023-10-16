@@ -234,6 +234,9 @@ Others
     right: 30px;
     width: 400px;
 }
+#input-timer{
+    font-size: 25px;
+}
 
 /* --------------------
 Responsive Design
@@ -286,6 +289,9 @@ Responsive Design
     .pulse{
         width: 40px;
         height: 40px;
+    }
+    #input-timer{
+        font-size: 20px;
     }
 }
 

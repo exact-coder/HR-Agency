@@ -64,9 +64,12 @@
                     <!--Items-->
                     <div class="col-xl-3 col-sm-6 col-6 p-1">
                         <div class="card" style="background-color: transparent;">
-                            <button class="btn btn-danger btn-lg jobs" >
+                            {% for countdown in countdowns %}
+                            <button class="btn btn-danger btn-lg jobs" data-bs-toggle="modal" data-bs-target="#countdownModal{{countdown.pk}}" >
                                 <i class="fas fa-clock fa-7x"></i><br><br> Countdown
                             </button>
+                            {% include "models/backend/countdown.html" %}
+                            {% endfor %}
                         </div>
                     </div>
 

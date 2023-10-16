@@ -285,10 +285,40 @@
         });
     </script>
 
+    <!--Countdown Timer-->
+    <!--Create a block to deny in back-->
+    {% for countdown in countdowns %}
+        <script>
+            // First block
+            let dateTime = new Date('{{ countdown.timer }}').getTime();
+            let control = setInterval(function() {
+                let now = new Date().getTime();
+                let sub = dateTime - now;
+
+                //Date Time Format
+                let d = Math.floor(sub / (1000 * 60 * 60 * 24));
+                let h = Math.floor((sub % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let m = Math.floor((sub % (1000 * 60 * 60)) / (1000 * 60));
+                let s = Math.floor((sub % (1000 * 60)) / (1000));
+
+                // Output
+                document.getElementById("timer").innerHTML = d + "d " + h + "h " + m + "m " + s + "s ";
+
+                // Statement
+                if(sub < 0) {
+                    clearInterval(control);
+                    document.getElementById("timer").innerHTML = "CLOSED JOB VACANCIES";
+                    document.getElementById("timer").style.color = "red";
+
+                }
+            },1000);
+        </script>
+    {% endfor %}
+
 </body>
 </html>
 
 
 
-{% comment %} Ep-17 and len is 00.22min {% endcomment %}
+{% comment %} Ep-18 and len is 00.00min {% endcomment %}
 

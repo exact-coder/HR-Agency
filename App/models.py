@@ -70,3 +70,8 @@ class Vacancies(models.Model):
     intern = models.CharField(_("Intern"), max_length=150)
     def __str__(self) -> str:
         return self.frontend
+    
+# 6) COUNTDOWN
+class Countdown(models.Model):
+    id = models.IntegerField(_("ID"),primary_key=True)
+    timer = models.CharField(_("Timer"), max_length=100)

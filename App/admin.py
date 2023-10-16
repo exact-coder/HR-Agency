@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Registered_email,Support,Message,Notepad,Vacancies
+from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown
 from django.utils.html import format_html
 # Register your models here.
 
@@ -70,3 +70,9 @@ class NotepadAdmin(admin.ModelAdmin):
 @admin.register(Vacancies)
 class VacanciesAdmin(admin.ModelAdmin):
     list_display = ['id','frontend','backend','fullstack','intern']
+
+# Countdown
+@admin.register(Countdown)
+class CountdownAdmin(admin.ModelAdmin):
+    list_display = ['id','timer']
+

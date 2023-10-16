@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
-from .models import Registered_email,Support,Message,Notepad,Vacancies
+from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 
@@ -17,7 +17,8 @@ def home(request):
 
 def opportunities(request):
     myJob = Vacancies.objects.all()
-    return render(request,"opportunities.html",{'vacancies':myJob})
+    myCountdown = Countdown.objects.all()
+    return render(request,"opportunities.html",{'vacancies':myJob,'countdowns': myCountdown})
 
 def faq(request):
     return render(request,"faq.html")
@@ -175,7 +176,8 @@ def backend(request):
     total = Registered_email.objects.all().count()
     myNote = Notepad.objects.all()
     myjobs = Vacancies.objects.all()
-    return render(request, 'backend.html', {'count': total,'notepads': myNote, 'vacancies':myjobs})
+    myCountdown = Countdown.objects.all()
+    return render(request, 'backend.html', {'count': total,'notepads': myNote, 'vacancies':myjobs,'countdowns': myCountdown})
 
 # Nodepad
 @cache_control(no_cache=True,must_revalidate=True,no_store=True)
@@ -203,4 +205,15 @@ def edit_vacancies(request):
             vacancy.intern = request.POST.get('intern')
             vacancy.save()
             messages.success(request, 'Job vacancies updated successfully !')
+            return HttpResponseRedirect('/backend')
+        
+@cache_control(no_cache=True,must_revalidate=True,no_store=True)
+@login_required(login_url="login")
+def edit_countdown(request):
+    if request.method == "POST":
+        countdown = Countdown.objects.get(id=request.POST.get('id'))
+        if countdown != None:
+            countdown.timer = request.POST.get('timer')
+            countdown.save()
+            messages.success(request, 'Countdown updated successfully !')
             return HttpResponseRedirect('/backend')

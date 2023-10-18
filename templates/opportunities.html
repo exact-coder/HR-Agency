@@ -114,6 +114,21 @@
         </button>
     </div>
 
+    <!-- 
+    RULES
+    -->
+    {% for vacancy in vacancies %}
+        {% if vacancy.backend == '0' %}
+            <button id="Mymodal" data-bs-toggle="modal" data-bs-target="#closed_backend"></button>
+        {% elif vacancy.frontend == '0' %}
+            <button id="Mymodal" data-bs-toggle="modal" data-bs-target="#closed_frontend"></button>
+        {% elif vacancy.fullstack == '0' %}
+            <button id="Mymodal" data-bs-toggle="modal" data-bs-target="#closed_fullstack"></button>
+        {% elif vacancy.intern == '0' %}
+            <button id="Mymodal" data-bs-toggle="modal" data-bs-target="#closed_intern"></button>
+        {% endif %}
+    {% endfor %}
+
     <br><br><br><br>
 
 {% endblock content %}

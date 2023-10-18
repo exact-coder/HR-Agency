@@ -1,25 +1,30 @@
 {% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-   {% endcomment %}
-
+    Launch demo modal</button>
+{% endcomment %}
+{% load static %}
 <!-- Modal -->
 <div class="modal fade" {% block modal-id %}{% endblock modal-id %} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="background: #212529 !important; color:#fff;">
     <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">
-            <img style="height:35px;width:35px;border-radius:12px;" src="{% static "img/exact.png" %}" alt=""> &nbsp; &nbsp;
-            {% block modal-title %}{% endblock modal-title %} (closed)
+            {% block title-root %}
+                <img style="height:35px;width:35px;border-radius:12px;" src="{% static "img/exact.png" %}" alt=""> &nbsp; &nbsp;
+                {% block modal-title %}{% endblock modal-title %} (closed)
+            {% endblock title-root %}
         </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" style="background-color:#fff;color:#212529;margin:0px;padding: 3px;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <div class="modal-body">
-        ...
+    <div class="modal-body text-center mb-3 mt-3">
+        <div class="mb-4">
+            <i class="text-danger far fa-times-circle fa-5x"></i>
+        </div>
+        {% block closed-root %}
+            Vacancies for {% block job-closed %}{% endblock job-closed %} developers have been closed due to the filling of all available vacancies. 
+        {% endblock closed-root %}
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-outline-light btn-sm btn-modal" data-bs-dismiss="modal">Close</button>
     </div>
     </div>
 </div>

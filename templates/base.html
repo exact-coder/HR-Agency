@@ -291,6 +291,16 @@
         });
     </script>
 
+    <!--Script to call the closed modals-->
+    <script>
+        setTimeout(function() {
+            let modal = document.querySelector('#Mymodal');
+            if(modal){
+                modal.click();
+            }
+        }, 1 * 200);
+    </script>
+
     <!--Countdown Timer-->
     <!--Create a block to deny in back-->
     {% for countdown in countdowns %}
@@ -326,5 +336,5 @@
 
 
 
-<!--Ep-18 and len is 00.22min -->
+<!--Ep-18 and len is 01.15min -->
 

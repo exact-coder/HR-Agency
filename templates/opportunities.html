@@ -12,7 +12,7 @@
 {% endblock link %}
 
 {% block content %}
-
+    {% for vacancy in vacancies %}
     <div class="container mt-4" style="width:80%;">
         <div class="justify-content-center align-items-center row">
             <h6 class="btn btn-info" id="card-title" style="width: 100%;cursor: default;">
@@ -23,7 +23,12 @@
 
                     <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
                         <div class="card" style="background-color: transparent;box-shadow: 0 0 8px rgba(252, 252, 252,1);border: #02a9f5;">
-                            <button class="btn btn-outline-info btn-lg jobs" data-bs-toggle="modal" data-bs-target="#frontendModel">
+                            {% if vacancy.frontend == '0' %}
+                                <button class="btn btn-outline-light btn-lg jobs" disabled>
+                            {% else %}
+                                <button class="btn btn-outline-info btn-lg jobs" data-bs-toggle="modal" data-bs-target="#frontendModel">
+
+                            {% endif %}
                             <i class="fab fa-react fa-5x">
                             </i><br><br> <strong>Front End</strong>
                             </button>
@@ -32,7 +37,11 @@
 
                     <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
                         <div class="card" style="background-color: transparent;box-shadow: 0 0 8px rgba(252, 252, 252,1);border: #02a9f5;">
+                            {% if vacancy.backend == '0' %}
+                                <button class="btn btn-outline-light btn-lg jobs" disabled>
+                            {% else %}
                             <button class="btn btn-outline-info btn-lg jobs"  data-bs-toggle="modal" data-bs-target="#backendModel">
+                            {% endif %}
                             <i class="fab fa-python fa-5x">
                             </i><br><br> <strong>Back End</strong>
                             </button>
@@ -50,7 +59,11 @@
 
                     <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
                         <div class="card" style="background-color: transparent;box-shadow: 0 0 8px rgba(252, 252, 252,1);border: #02a9f5;">
+                            {% if vacancy.fullstack == '0' %}
+                                <button class="btn btn-outline-light btn-lg jobs" disabled>
+                            {% else %}
                             <button class="btn btn-outline-info btn-lg jobs"  data-bs-toggle="modal" data-bs-target="#fullstackModel">
+                            {% endif  %}
                             <i class="fab fa-node-js fa-5x">
                             </i><br><br> <strong>Full Stack</strong>
                             </button>
@@ -69,7 +82,11 @@
                     
                     <div class="col-xl-2 col-lg-3 col-sm-4 col-xs-6 p-1">
                         <div class="card" style="background-color: transparent;box-shadow: 0 0 8px rgba(252, 252, 252,1);border: #02a9f5;">
-                            <button class="btn btn-outline-info btn-lg jobs"  data-bs-toggle="modal" data-bs-target="#internModel">
+                            {% if vacancy.intern == '0' %}
+                                <button class="btn btn-outline-light btn-lg jobs" disabled>
+                            {% else %}
+                                <button class="btn btn-outline-info btn-lg jobs"  data-bs-toggle="modal" data-bs-target="#internModel">
+                            {% endif %}
                             <i class="fas fa-file-code fa-5x">
                             </i><br><br> <strong>Intern </strong>
                             </button>
@@ -80,6 +97,9 @@
             </div>
         </div>
     </div>
+    {% endfor %}
+
+
     <!---- Spinner AJAX backend---->
     <div id="bg-spinner">
         <div id="position-spinner">

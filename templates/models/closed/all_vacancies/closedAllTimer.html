@@ -1,0 +1,20 @@
+{% extends "models/closed/base.html" %}
+{% load static %}
+
+<!--Modal ID-->
+{% block modal-id %} id="closedAllTimer" {% endblock modal-id %}
+
+
+<!--Modal Title (root)-->
+{% block title-root %}
+    <i class="text-danger fas fa-hourglass-end"></i> &nbsp;&nbsp; <span class="text-danger">Time is over</span>
+{% endblock title-root %}
+
+
+<!--Job closed (root)-->
+{% block closed-root %}
+    <span class="text-danger">TIMEOUT FOR REGISTRATIONS</span>
+    <div class="mt-2" style="font-size:12px;" >All job vacancies have been closed. You can join our waiting list for the future opportunities: 
+        <a href="#" class="text-danger">Waiting list</a>
+    </div>
+{% endblock closed-root %}

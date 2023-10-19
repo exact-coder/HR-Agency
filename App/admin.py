@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown
+from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown,Waiting
 from django.utils.html import format_html
 # Register your models here.
 
@@ -75,4 +75,28 @@ class VacanciesAdmin(admin.ModelAdmin):
 @admin.register(Countdown)
 class CountdownAdmin(admin.ModelAdmin):
     list_display = ['id','timer']
+
+# Waiting
+@admin.register(Waiting)
+class WaitingAdmin(admin.ModelAdmin):
+    list_filter=['Situation','job']
+    list_display = ['id','job','email','message','Situation','company_note']
+    list_display_links=['id','job']
+    search_fields=['job']
+    # Function to change the icons (Done - Pending)
+    def _(self,obj):
+        if obj.Situation == 'Read':
+            return True
+        else:
+            return False
+    _.boolean = True
+
+    # Function to color the text (Done - Pending)
+    def status(self,obj):
+        if obj.Situation == 'Read':
+            color = '#28a745'
+        else:
+            color = 'red'
+        return format_html('<strong><p style="color: {}">{}</p></strong>'.format(color, obj.Situation))
+    status.allow_tags = True
 

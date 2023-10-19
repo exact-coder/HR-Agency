@@ -174,14 +174,14 @@ def waiting(request):
             messages.warning(request, ".")
             return HttpResponseRedirect('/waiting')
         else:
-            file = request.FILES['profile_document']
-            attach = FileSystemStorage()
-            profile_doc = attach.save(file.name, file)
+            # file = request.FILES['profile']
+            # attach = FileSystemStorage()
+            # profile_doc = attach.save(file.name, file)
 
             waiting = Waiting(
                 job = request.POST.get('job'),
                 email = request.POST.get('email'),
-                profile_document = profile_doc,
+                profile_document = request.FILES['profile'],
                 message = request.POST.get('message')
             )
             waiting.save()

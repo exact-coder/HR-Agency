@@ -11,7 +11,7 @@ urlpatterns = [
     path('user/',include('django.contrib.auth.urls'),name="login"),
     path("support/",support,name='support'),
     path("add_message/",add_message,name='add_message'),
-    path("waiting/",waiting,name='waiting'),
+    path("waiting",waiting,name='waiting'),
 
     # ||===============BACKEND SECTION================||
     path('backend/',backend,name='backend'),

@@ -96,7 +96,7 @@ class Waiting(models.Model):
     message = models.TextField(_("Message"))
     Situation = models.CharField(_("Situation"), max_length=50,null=True,blank=True,choices=SITUATION,default='Unread')
     created_at = models.DateTimeField(_("Created At"), auto_now=False, auto_now_add=True)
-    profile_document = models.FileField(_("Resume"), upload_to='resume', max_length=500)
+    profile_document = models.FileField(_("Resume"), upload_to='resume')
     company_note = models.TextField(_("Company Note"),null=True,blank=True)
 
     def __str__(self) -> str:

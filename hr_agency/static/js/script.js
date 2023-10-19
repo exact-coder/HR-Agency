@@ -162,7 +162,7 @@ $("#frontendModel,#backendModel,#fullstackModel,#internModel").on("hidden.bs.mod
 
 // (3) Maximum allowed upload size 
 $(document).ready(function() {
-    $("#file").bind("change",function() {
+    $("#file,#file5").bind("change",function() {
         let a = (this.files[0].size);
 
         if(a > 2 * 1048576){

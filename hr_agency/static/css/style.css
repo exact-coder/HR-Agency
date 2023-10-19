@@ -241,10 +241,18 @@ Others
 /* --------------------
 Responsive Design
 ----------------------- */
+
 /* Resolution for Tablets */
 @media (max-width: 1024px) {
     #footer {
         font-size: 15px;
+    }
+    .watermark{
+        top: 72%;
+        font-size: 12px;
+    }
+    .watermark-login{
+        font-size: 10px;
     }
 }
 

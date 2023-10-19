@@ -1,0 +1,25 @@
+{% extends "models/duplicated/base.html" %}
+{% load static %}
+
+<!--Modal Centered-->
+{% block center %} modal-dialog-centered {% endblock center %}
+
+<!-- Modal Id-->
+{% block modal-id %} id="msgWaitingModel" {% endblock modal-id %}
+
+<!-- Modal Title-->
+{% block modal-title %} 
+<i class="text-danger far fa-times-circle"></i> &nbsp;&nbsp; Sorry !!
+{% endblock modal-title %}
+
+<!-- Modal Body-->
+{% block modal-body %}
+    <div class="text-center text-primary">
+        <i class="text-danger far fa-times-circle fa-5x"></i>
+    </div>
+    <div class="text-danger mb-3 mt-3" style="font-size:18px;">We already have your resume in our DB.</div>
+    <div class="mb-3" style="font-size: 13px;">
+        Note: You have already sined up for our warning list. Wait for new job opening to open
+    </div>
+{% endblock modal-body %}
+

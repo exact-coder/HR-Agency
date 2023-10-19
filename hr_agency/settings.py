@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # custom app
     'App',
+    # Outside package Installed App
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,11 +1,11 @@
-{% extends "models/others/base.html" %}
+{% extends "models/duplicated/base.html" %}
 {% load static %}
 
 <!--Modal Centered-->
 {% block center %} modal-dialog-centered {% endblock center %}
 
 <!-- Modal Id-->
-{% block modal-id %} id="msgSupportModel" {% endblock modal-id %}
+{% block modal-id %} id="msgFormModel" {% endblock modal-id %}
 
 <!-- Modal Title-->
 {% block modal-title %} 
@@ -17,9 +17,10 @@
     <div class="text-center text-primary">
         <i class="text-danger far fa-times-circle fa-5x"></i>
     </div>
-    <div class="text-danger mb-3 mt-3" style="font-size:18px;">You have a pending request</div>
+    <div class="text-danger mb-3 mt-3" style="font-size:18px;">We already have your resume in our Database</div>
     <div class="mb-3" style="font-size: 13px;">
-        Note: To make a new request, you must first wait until the end of your pending request.
+        Note: If you are trying to update your resume, you will get it through the support page.
     </div>
+    <a class="btn text-danger" href="{% url "support" %}">Support Page</a>
 {% endblock modal-body %}
 

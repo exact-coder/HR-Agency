@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Waiting List {% endblock title %}
+{% block bg-image %}
+<style>
+    body{
+        background-color: #16191c;
+        background-position: center 0px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+{% endblock bg-image %}
+
+{% comment %} Sidebar Links {% endcomment %}
+{% block sidebar-links %}
+    <a href="{% url "home" %}" class="btn btn-warning">Home</a>
+    <hr><br>
+    <center class="mt-5">
+        <i class="fas fa-history fa-7x" style="color: #4e5154;"></i>
+    </center>
+{% endblock sidebar-links %}
+
+<!--Page Content-->
+{% block content %}
+    <div class="container mt-5" style="width:95%">
+        <h4 class="btn btn-lg border-info mb-3 text-light" style="width:100%;cursor: default;">
+            <i class="fas fa-user-clock"></i>&nbsp;&nbsp; Candidate Waiting List
+        </h4>
+        <div class="card p-3 border-light" style="background-color:rgba(255,255,255,0.06);">
+            <form method="POST" action="/waiting" class="was-validated" enctype="multipart/form/form-data" autocomplete="off">
+                {% csrf_token %}
+
+
+            </form>
+        </div>
+    </div>
+    <center>
+        <button class="btn mt-2 watermark" disabled style="color: #e9e9e9">
+            <img style="opacity: 0.2;" src="{% static "img/favicon.png" %}" alt="watermark">
+        </button>
+    </center>
+{% endblock content %}
+

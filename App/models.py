@@ -75,3 +75,30 @@ class Vacancies(models.Model):
 class Countdown(models.Model):
     id = models.IntegerField(_("ID"),primary_key=True)
     timer = models.CharField(_("Timer"), max_length=100)
+
+# WAITING LIST
+
+JOB = (
+    ('Frontend','Frontend'),
+    ('Backend','Backend'),
+    ('Fullstack','Fullstack'),
+    ('Intern','Intern'),
+)
+
+SITUATION ={
+    ('Read','Read'),
+    ('Unread','Unread'),
+}
+
+class Waiting(models.Model):
+    job = models.CharField(_("Job Title"), max_length=150, choices=JOB)
+    email = models.EmailField(_("Email"), max_length=254)
+    message = models.TextField(_("Message"))
+    Situation = models.CharField(_("Situation"), max_length=50,null=True,blank=True,choices=SITUATION,default='Unread')
+    created_at = models.DateTimeField(_("Created At"), auto_now=False, auto_now_add=True)
+    profile_document = models.FileField(_("Resume"), upload_to='resume', max_length=500)
+    company_note = models.TextField(_("Company Note"),null=True,blank=True)
+
+    def __str__(self) -> str:
+        return self.job
+

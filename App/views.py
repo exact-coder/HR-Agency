@@ -3,10 +3,10 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
-from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown
+from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown,Waiting
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
-
+from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -165,6 +165,30 @@ def add_message(request):
             return HttpResponseRedirect('/')
     else:
         return render(request,"home.html")
+    
+def waiting(request):
+    if request.method == "POST":
+        email = request.POST['email']
+
+        if Waiting.objects.filter(email=email).exists():
+            messages.warning(request, ".")
+            return HttpResponseRedirect('/waiting')
+        else:
+            file = request.FILES['profile_document']
+            attach = FileSystemStorage()
+            profile_doc = attach.save(file.name, file)
+
+            waiting = Waiting(
+                job = request.POST.get('job'),
+                email = request.POST.get('email'),
+                profile_document = profile_doc,
+                message = request.POST.get('message')
+            )
+            waiting.save()
+            messages.success(request, 'Successfully Registered !')
+            return HttpResponseRedirect('/')
+    else:
+        return render(request, 'wating_list.html')
 
 
 # ||================= BACKEND SECTION ================||
@@ -217,3 +241,4 @@ def edit_countdown(request):
             countdown.save()
             messages.success(request, 'Countdown updated successfully !')
             return HttpResponseRedirect('/backend')
+        

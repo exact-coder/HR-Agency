@@ -22,7 +22,7 @@
             <form method="POST" autocomplete="off" novalidate>
                 {% csrf_token %}
                 <div class="input-group mb-3 mt-5">
-                    <span class="btn input-group-text border-secondary bg-info">
+                    <span class="btn input-group-text border-secondary bg-info side-label">
                         <i class="fas fa-user-alt"></i>
                     </span>
                     <input type="text" class="form-control bg-info" name="username" placeholder="Username">
@@ -40,7 +40,7 @@
                     <input type="submit" class="btn btn-info btn-sm mt-4 mb-3" id="btn-login" value="Login">
                 </div>
             </form>
-            <center class="mt-5 mb-5">
+            <center class="mt-5 mb-5 watermark-login">
                 <i class="fas fa-user-secret fa-7x" style="color: #4e5154;"></i>
             </center>
         </div>

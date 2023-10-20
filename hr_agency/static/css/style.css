@@ -247,10 +247,12 @@ Responsive Design
     #footer {
         font-size: 15px;
     }
+    /* Watermark in the body (not inside the sidebars) */
     .watermark{
         top: 72%;
         font-size: 12px;
     }
+    /* Watermark (only in login form) */
     .watermark-login{
         font-size: 10px;
     }

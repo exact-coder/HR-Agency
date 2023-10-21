@@ -1,3 +1,22 @@
+/* Scroll Bar */
+
+body{
+    background-color: #F1F1F1;
+    color: #313131;
+}
+body::-webkit-scrollbar{
+    width: 9px;
+    background-color:#E4E4E4;
+}
+body::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color:#02d4fa;
+}
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: #b8dfe9;
+}
+
 
 html,body{
     height: 100%;
@@ -151,6 +170,54 @@ Login Design
     font-weight: 500;
 }
 /* -------------------- 
+PULSE EFFECTS & ICON
+-----------------------*/
+/* Pulse effect in message popup and question icon */
+.pulse {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    position: fixed;
+    right: 30px;
+    bottom: 75px;
+    padding:5px;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        box-shadow: 0 0 0 0 rgba(49, 210, 242, .7),0 0 0 0 rgba(49, 210, 242, .7);
+    }
+    40%{
+        box-shadow: 0 0 0 10px rgba(12, 165, 139, 0.7),0 0 0 0 rgba(49, 210, 242, .7);
+    }
+    80%{
+        box-shadow: 0 0 0 20px rgba(6, 143, 148, 0.5),0 0 0 0 rgba(3, 147, 133, 0.5);
+    }
+    100%{
+        box-shadow: 0 0 0 0 rgba(5, 188, 176, 0.7),0 0 0 0 rgba(2, 117, 115, 0.7);
+    }
+}
+
+/* -------------------- 
+FAQ - ACCORDION
+-----------------------*/
+.accordion-button:is(.collapsed){
+    background-color:#02d5fa4b;
+}
+.accordion-button:not(.collapsed){
+    color: #F1F1F1;
+    background-color: #02d5faa2;
+    box-shadow: inset 0 -1px 0 rgba(12, 165, 139, 0.3);
+    font-weight: bold !important;
+    
+} 
+.accordion-button:focus {
+    box-shadow: 0 0 8px rgba(12, 165, 139, 0.3);
+}
+
+
+/* -------------------- 
 Others
 -----------------------*/
 .watermark{
@@ -162,14 +229,45 @@ Others
     border: none;
     z-index: -1;
 }
-
+#modal-message{
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    width: 400px;
+}
+#input-timer{
+    font-size: 25px;
+}
+/* Total of candidates (backend popup modal) */
+#candidate {
+    font-size: 100px;
+}
 /* --------------------
 Responsive Design
 ----------------------- */
+
 /* Resolution for Tablets */
 @media (max-width: 1024px) {
     #footer {
         font-size: 15px;
+    }
+    /* Watermark in the body (not inside the sidebars) */
+    .watermark{
+        top: 70%;
+        font-size: 12px;
+    }
+    /* Watermark (only in login form) */
+    .watermark-login{
+        font-size: 10px;
+    }
+    .down{
+        margin-top: 15px;
+    }
+    .up{
+        margin-top: -20px;
+    }
+    .card-size{
+        font-size: 16px;
     }
 }
 
@@ -206,5 +304,32 @@ Responsive Design
         width: 95%;
         overflow: hidden;
     }
+    #modal-message{
+        bottom: 50px;
+        right: 12px;
+        width: 90%;
+    }
+    .pulse{
+        width: 40px;
+        height: 40px;
+    }
+    #input-timer{
+        font-size: 20px;
+    }
+    #btn-nav-right{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    .watermark{
+        font-size: 9px;
+    }
+    .up {
+        margin-top: 0px;
+    }
+    /* Total of candidates (backend popup modal) */
+    #candidate {
+        font-size: 50px;
+    }
 }
+
 

@@ -17,6 +17,8 @@ function validateEmail(email){
     return regex.test(email);
 }
 
+// Frontend
+
 function validateForm() {
     const name = document.getElementById("name").value;
     const age = document.getElementById("age").value;
@@ -81,17 +83,86 @@ function validateForm() {
         return true;
     }
 }
+
+
+// Intern Form
+function validateForm4() {
+    const name = document.getElementById("name4").value;
+    const age = document.getElementById("age4").value;
+    const email = document.getElementById("email4").value;
+    const phone = document.getElementById("phone4").value;
+    const address = document.getElementById("address4").value;
+    const experience = document.getElementById("experience4").value;
+    const skills = document.getElementById("skills4").value;
+    const file = document.getElementById("file4").value;
+
+    if(name == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Name field cannot be empty.","error");
+        return false;
+    }
+    else if(name.split(' ').length < 2){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Your Fullname is required.","info");
+        return false;
+    }
+    else if(age == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Age field cannot be empty.","error");
+        return false;
+    }
+    else if(email == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Email field cannot be empty.","error");
+        return false;
+    }
+    else if(!(validateEmail(email))){
+        document.getElementById('email4').value="";
+        swal("Opss !","Please enter a valid email.","error");
+        return false;
+    }
+    else if(phone == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Phone field cannot be empty.","error");
+        return false;
+    }
+    else if(address == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Address cannot be empty.","error");
+        return false;
+    }
+    else if(experience == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Experience cannot be empty.","error");
+        return false;
+    }
+    else if(skills == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","Skills cannot be empty.","error");
+        return false;
+    }
+    else if(file == ""){
+        document.getElementById("bg-spinner").style.display = "none";
+        swal("Opss !","File cannot be empty.","error");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 // (2) Clear the form (inside the modal) when the modal is closed.
-$("#frontendModel,#backendModel,#fullstackModel").on("hidden.bs.modal", function(){
+$("#frontendModel,#backendModel,#fullstackModel,#internModel").on("hidden.bs.modal", function(){
     $('#frontendModel form')[0].reset();
     $('#backendModel form')[0].reset();
     $('#fullstackModel form')[0].reset();
+    $('#internModel form')[0].reset();
 });
 
 
 // (3) Maximum allowed upload size 
 $(document).ready(function() {
-    $("#file").bind("change",function() {
+    $("#file,#file5").bind("change",function() {
         let a = (this.files[0].size);
 
         if(a > 2 * 1048576){
@@ -162,4 +233,15 @@ let typed = new Typed('#homeTitle', {
     backDelay: 3000,
     loop: true,
 })    
+
+// Dependent select option
+function req(){
+    if(document.getElementById('choose').value != ''){
+        document.getElementById('dependent').disabled= false;
+    }else{
+        document.getElementById('dependent').disabled = true;
+    }
+}
+
+
 

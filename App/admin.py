@@ -8,6 +8,7 @@ class Registered_EmailAdmin(admin.ModelAdmin):
     list_display = ['id','email']
     list_display_links =['email']
     search_fields = ['email']
+    readonly_fields = ['email']
     list_per_page = 10
 
 # SUPPORT
@@ -16,6 +17,7 @@ class SupportAdmin(admin.ModelAdmin):
     list_filter = ['Situation']
     list_display = ['person','email','option','created_at','status','_']
     search_fields = ['persion','option']
+    readonly_fields = ('person','email','option','created_at','message')
     list_per_page = 10
 
     # Function to change the icons (Done - Pending)
@@ -42,6 +44,7 @@ class MessageAdmin(admin.ModelAdmin):
     list_filter = ['Situation']
     list_display = ['id','email','text','status','_']
     list_display_links = ['id','email']
+    readonly_fields = ('id','email','text')
     list_per_page = 10
     # Function to change the icons (Done - Pending)
     def _(self,obj):
@@ -82,6 +85,7 @@ class WaitingAdmin(admin.ModelAdmin):
     list_filter=['Situation','job']
     list_display = ['id','job','email','message','Situation','company_note']
     list_display_links=['id','job']
+    readonly_fields = ('id','job','email','message','profile_document')
     search_fields=['job']
     # Function to change the icons (Done - Pending)
     def _(self,obj):

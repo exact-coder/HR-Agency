@@ -8,6 +8,9 @@ class Registered_email(models.Model):
 
     def __str__(self) -> str:
         return self.email
+        
+    class Meta:
+        verbose_name_plural ="Registered_email"
     
 # 2) SUPPORT
 class Support(models.Model):
@@ -39,6 +42,9 @@ class Support(models.Model):
 
     def __str__(self) -> str:
         return self.person
+        
+    class Meta:
+        verbose_name_plural ="Support"
 
 # 3) MESSAGE
 class Message(models.Model):
@@ -51,6 +57,9 @@ class Message(models.Model):
     text = models.TextField(_("Message"))
     created_at = models.DateTimeField(_("Created"), auto_now=False, auto_now_add=True)
     Situation = models.CharField(_("Situation"), max_length=50,null=True,blank=True,choices=SITUATION,default='Unread')
+        
+    class Meta:
+        verbose_name_plural ="Messages"
 
 # 4) NODEPAD
 class Notepad(models.Model):
@@ -60,6 +69,9 @@ class Notepad(models.Model):
 
     def __str__(self) -> str:
         return self.title
+        
+    class Meta:
+        verbose_name_plural ="Notepad"
     
 #  5) JOB VACANCIES
 class Vacancies(models.Model):
@@ -70,11 +82,17 @@ class Vacancies(models.Model):
     intern = models.CharField(_("Intern"), max_length=150)
     def __str__(self) -> str:
         return self.frontend
+        
+    class Meta:
+        verbose_name_plural ="Vacancies"
     
 # 6) COUNTDOWN
 class Countdown(models.Model):
     id = models.IntegerField(_("ID"),primary_key=True)
     timer = models.CharField(_("Timer"), max_length=100)
+        
+    class Meta:
+        verbose_name_plural ="Countdown"
 
 # WAITING LIST
 
@@ -101,4 +119,7 @@ class Waiting(models.Model):
 
     def __str__(self) -> str:
         return self.job
+    
+    class Meta:
+        verbose_name_plural ="Waiting"
 

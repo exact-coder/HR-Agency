@@ -92,9 +92,15 @@
                 </div>
                 {% endif %}
                 
+                {% if user.is_authenticated and user.email %}
                 <div class="mb-4">
-                    <input type="email" class="form-control" name="email" maxlength="50" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="email" value="{{user.email}}" title="Email" required>
                 </div>
+                {% else %}
+                <div class="mb-4">
+                    <input type="email" class="form-control" name="email" maxlength="50" placeholder="Your Email" required title="Email">
+                </div>
+                {% endif %}
                 <hr>
 
                 <div class="mt-4">

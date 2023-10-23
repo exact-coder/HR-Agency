@@ -192,7 +192,7 @@ $("input[type='text'], textarea").on("keypress", function(e) {
 });
 
 // (7) Allow only numbers in Age
-$(".age").keyup(function() {
+$(".age, .job-opp").keyup(function() {
     if(!/^[0-9]*$/.test(this.value)){
         this.value = this.value.split(/[^0-9]/).join('');
     }

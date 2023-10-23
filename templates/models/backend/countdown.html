@@ -11,6 +11,22 @@
 
 <!--Modal Form-->
 {% block form %}
+<style>
+    input {
+        cursor: pointer;
+    }
+    input::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+</style>
+<!--Input Color-->
+{% block input-color %}
+<style>
+    #input-timer:focus{
+        box-shadow: 0 0 8px rgba(207, 0, 15,1) !important;
+    }
+</style>
+{% endblock input-color %}
     <form action="{% url "edit_countdown" %}" method="POST" autocomplete="off">
         {% csrf_token %}
         <div class="modal-body">
@@ -19,7 +35,7 @@
             <input type="hidden" name="id" value="{{ countdown.pk}}" readonly >
             <!-- Input Title-->
             <div class="input-group mb-4">
-                <input type="text" class="form-control text-center border-dark text-danger" id="input-timer" name="timer" value="{{ countdown.timer }}" >
+                <input type="datetime-local" class="form-control text-center border-dark text-danger" id="input-timer" name="timer" value="{{ countdown.timer }}" >
             </div>
         </div>
         <div class="modal-footer">

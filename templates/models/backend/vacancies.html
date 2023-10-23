@@ -11,6 +11,15 @@
 
 <!--Modal Form-->
 {% block form %}
+<!--Input Color-->
+{% block input-color %}
+<style>
+    #input-job:focus{
+        background-color: orange !important;
+        box-shadow: 0 0 8px rgba(249, 180, 45, 1) !important;
+    }
+</style>
+{% endblock input-color %}
     <form action="{% url "edit_vacancies" %}" method="POST" autocomplete="off">
         {% csrf_token %}
         <div class="modal-body">
@@ -28,7 +37,7 @@
                             <span style="font-size:14px;">Frontend</span>
                         </button>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control text-center mt-2 job-opp" name="frontend" value="{{ vacancy.frontend }}" >
+                            <input type="text" class="form-control text-center mt-2 job-opp" name="frontend" id="input-job" value="{{ vacancy.frontend }}" >
                         </div>
                     </div>
                     <!-- Backend -->
@@ -38,7 +47,7 @@
                             <span style="font-size:14px;">Backend</span>
                         </button>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control text-center mt-2 job-opp" name="backend" value="{{ vacancy.backend }}" >
+                            <input type="text" class="form-control text-center mt-2 job-opp" name="backend" id="input-job" value="{{ vacancy.backend }}" >
                         </div>
                     </div>
                     <!-- Fullstack -->
@@ -48,7 +57,7 @@
                             <span style="font-size:14px;">Fullstack</span>
                         </button>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control text-center mt-2 job-opp" name="fullstack" value="{{ vacancy.fullstack }}" >
+                            <input type="text" class="form-control text-center mt-2 job-opp" name="fullstack" id="input-job" value="{{ vacancy.fullstack }}" >
                         </div>
                     </div>
                     <!-- Intern -->
@@ -58,7 +67,7 @@
                             <span style="font-size:14px;">Intern</span>
                         </button>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control text-center mt-2 job-opp" name="intern" value="{{ vacancy.intern }}" >
+                            <input type="text" class="form-control text-center mt-2 job-opp" name="intern" id="input-job" value="{{ vacancy.intern }}" >
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@
 
     <title>{% block title %} HR Agency {% endblock title %}</title>
 </head>
-<body>
+<body onunload=''>
     <div class="wrapper"> {% comment %} START // wrapper {% endcomment %}
         <div id="payloader"></div>
 
@@ -153,6 +153,7 @@
     {% endfor %}
 
     {% for message in messages %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
         {% if message.tags == 'warning' %}
             <script>
                 let msg = "{{ message }}";
@@ -169,23 +170,20 @@
         </script>
     {% endif %}
 
-    <!--Support message (pending request )-->
+    <!--Bootstrap modal popup -->
     {% for message in messages %}
-    {% if message.tags == 'info' %}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> <!--Jquery CDN-->
+    <!--Support message (pending request )-->
+        {% if message.tags == 'info' %}
             <script>
                 $(document).ready(function() {
                     $("#msgSupportModel").modal('show');
                 })
             </script>
         {% endif %}
-    {% endfor %}
 
-    
-    <!--Candidate message (duplicated resume )-->
-    {% for message in messages %}
-    {% if message.tags == 'error' %}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> <!--Jquery CDN-->
+        <!--Candidate message (duplicated resume )-->
+        {% if message.tags == 'error' %}
             <script>
                 $(document).ready(function() {
                     $("#msgFormModel").modal('show');
@@ -296,6 +294,7 @@
         });
     </script>
 
+
     <!--Script to call the closed modals-->
     <script>
         setTimeout(function() {
@@ -359,5 +358,5 @@
 
 
 
-<!-- Ep-21 and len is 00.00min -->
+<!-- Ep-21 and len is 00.50min -->
 

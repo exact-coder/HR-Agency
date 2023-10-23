@@ -352,6 +352,34 @@
     {% endfor %}
     {% endblock countdown %}
 
+    <!--Enable backend buttton if changes exists-->
+    <script>
+        //Start settings
+        const form = document.querySelectorAll("input, textarea");
+        for (const data of form){
+            data.saved = data.value;
+        }
+        //Statement
+        (btnEnabled = function() {
+            let btn = true;
+            for(const data of form) {
+                if(data.saved !== data.value){
+                    btn = false;
+                    break;
+                }
+            }
+            //Jquery Version
+            $("#save-note, #save-timer, #save-vacancies").prop("disabled",btn);
+            
+            //JS Version
+            /*document.getElementById("save-note").disabled = btn;
+            document.getElementById("save-timer").disabled = btn;
+            document.getElementById("save-vacancies").disabled = btn; */
+        })();
+        //Call
+        document.oninput = btnEnabled
+    </script>
+
 </body>
 </html>
 

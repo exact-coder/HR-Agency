@@ -1,0 +1,25 @@
+{% extends "models/others/base.html" %}
+{% load static %}
+
+<!-- Modal Id-->
+{% block modal-id %} id="questionModel" {% endblock modal-id %}
+
+<!-- Modal Title-->
+{% block modal-title %} 
+<i class="fas fa-question"></i> &nbsp;&nbsp; Question
+{% endblock modal-title %}
+
+<!-- Modal Body-->
+{% block modal-body %}
+    <div class="text-center text-warning text-sm">
+        <span class="fa-stack fa-4x">
+            <i class="fas fa-cloud fa-stack-2x"></i>
+            <i class="text-dark fas fa-question fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="text-center mt-3 mb-3 txt-sm">For more information access our
+        <a href="{% url "faq" %}" class="" style="color: orange;">FAQ</a>
+    </div>
+{% endblock modal-body %}
+
+

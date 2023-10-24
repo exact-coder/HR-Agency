@@ -30,6 +30,15 @@
 
 <!--Page Content-->
 {% block content %}
+    {% if request.user.is_superuser %}
+    <div class="text-center text-info txt-sm" id="off-sup">
+        <span class="fa-stack fa-7x">
+            <i class="fas fa-cloud fa-stack-2x"></i>
+            <i class="text-dark fas fa-tools fa-stack-1x fa-inverse"></i>
+        </span>
+        <h1 class="text-center text-light mt-3 mb-4 E404">404</h1>
+    </div>
+    {% else %}
     <div class="container mt-5" style="width:95%">
         <h4 class="btn btn-lg border-info mb-3 text-light" style="width:100%;cursor: default;">
             <i class="fas fa-tools"></i>&nbsp;&nbsp; Technical Support
@@ -123,5 +132,6 @@
             <img style="opacity: 0.2;" src="{% static "img/favicon.png" %}" alt="watermark">
         </button>
     </center>
+    {% endif %}
 {% endblock content %}
 

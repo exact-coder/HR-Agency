@@ -242,6 +242,19 @@ Others
 #candidate {
     font-size: 100px;
 }
+/* Not Found design */
+#off-sup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.E404{
+    font-size: 80px;
+}
+
+
 /* --------------------
 Responsive Design
 ----------------------- */
@@ -330,6 +343,14 @@ Responsive Design
     #candidate {
         font-size: 50px;
     }
+    /* Not Found design */
+    #off-sup {
+        font-size: 12px;
+    }
+    .E404{
+        font-size: 50px;
+    }
+
 }
 
 

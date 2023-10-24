@@ -188,7 +188,8 @@ def waiting(request):
             messages.success(request, 'Successfully Registered !')
             return HttpResponseRedirect('/')
     else:
-        return render(request, 'wating_list.html')
+        myCountdown = Countdown.objects.all()
+        return render(request, 'wating_list.html',{'countdowns':myCountdown})
 
 
 # ||================= BACKEND SECTION ================||

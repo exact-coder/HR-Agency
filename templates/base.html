@@ -326,13 +326,24 @@
                 let s = Math.floor((sub % (1000 * 60)) / (1000));
 
                 // Output
-                document.getElementById("timer").innerHTML = d + "d " + h + "h " + m + "m " + s + "s ";
+                const timer = document.getElementById("timer").innerHTML = d + " days, " + ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
 
                 // Statement
-                if(sub < 0) {
+                if(sub > 0) {
+                    document.getElementById("timer").innerHTML = d + " days, " + ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+                    //Hide waiting list (form)
+                    $('#enabled').css("display","none");
+                    //Show the div (no waiting list)
+                    $('#disabled').css("display","block");
+                }else{
                     clearInterval(control);
                     document.getElementById("timer").innerHTML = "CLOSED JOB VACANCIES";
                     document.getElementById("timer").style.color = "red";
+
+                    //Hide waiting list (form)
+                    $('#enabled').css("display","block");
+                    //Show the div (no waiting list)
+                    $('#disabled').css("display","none");
 
                     // Disable all job vacancies when countdown is over
                     $(".btn-off").prop("disabled",true).css({'color':'white','border-color':'white'});
@@ -387,5 +398,5 @@
 
 
 
-<!-- Ep-21 and len is 02.00min -->
+<!-- Ep-21 and len is 02.20min -->
 

@@ -26,44 +26,59 @@
 <!--Page Content-->
 {% block content %}
     <div class="container mt-5" style="width:95%">
-        <h4 class="btn btn-lg border-info mb-3 text-light" style="width:100%;cursor: default;">
-            <i class="fas fa-user-clock"></i>&nbsp;&nbsp; Candidate Waiting List
-        </h4>
-        <div class="card p-3 border-light" style="background-color:rgba(255,255,255,0.06);">
-            <form method="POST" action="/waiting" class="was-validated" enctype="multipart/form/form-data" autocomplete="off">
-                {% csrf_token %}
-                <select name="job" id="" class="form-select mt-3" required>
-                    <option value="" hidden>Choose the job</option>
-                    <option value="" disabled></option>
-                    <option value="">Frontend</option>
-                    <option value="">Backend</option>
-                    <option value="">Fullstack</option>
-                    <option value="">Intern</option>
-                </select>
-                <div class="input-group mb-3 mt-3">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" maxlength="50" required>
-                </div>
-                <div class="input-group mb-3 mt-3">
-                    <input type="file" name="profile" class="form-control form-control-sm" id="file5" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocssingml.document" required>
-                </div>
-                <div class="form-text text-light" style="font-size:12px;display:block;">*Allowed extensions: pdf - doc - docx </div><hr>
-                <div class="mb-3">
-                    <textarea name="message" id="" cols="30" rows="5" class="form-control is-valid" placeholder="Talk a little about you..." maxlength="600" required></textarea>
-                </div>
-                <div class="mt-4">
-                    <button class="btn btn-outline-success mb-2">Send &nbsp;&nbsp; <i class="fas fa-paper-plane"></i> 
-                    </button>
-                    <a href="{% url "home" %}" class="btn btn-outline-danger mb-2 ms-2" title="Exit">
-                        <i class="fas fa-times"></i>
-                    </a>
-                    <a class="btn btn-outline-info mb-2 ms-2 border-info" title="Help" data-bs-target="#questionModel" data-bs-toggle="modal">
-                        <i class="fas fa-question"></i>
-                    </a>
-                </div>
+        <div class="enabled" style="display: none;">
+            <h4 class="btn btn-lg border-info mb-3 text-light" style="width:100%;cursor: default;">
+                <i class="fas fa-user-clock"></i>&nbsp;&nbsp; Candidate Waiting List
+            </h4>
+            <div class="card p-3 border-light" style="background-color:rgba(255,255,255,0.06);">
+                <form method="POST" action="/waiting" class="was-validated" enctype="multipart/form/form-data" autocomplete="off">
+                    {% csrf_token %}
+                    <select name="job" id="" class="form-select mt-3" required>
+                        <option value="" hidden>Choose the job</option>
+                        <option value="" disabled></option>
+                        <option value="">Frontend</option>
+                        <option value="">Backend</option>
+                        <option value="">Fullstack</option>
+                        <option value="">Intern</option>
+                    </select>
+                    <div class="input-group mb-3 mt-3">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" maxlength="50" required>
+                    </div>
+                    <div class="input-group mb-3 mt-3">
+                        <input type="file" name="profile" class="form-control form-control-sm" id="file5" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocssingml.document" required>
+                    </div>
+                    <div class="form-text text-light" style="font-size:12px;display:block;">*Allowed extensions: pdf - doc - docx </div><hr>
+                    <div class="mb-3">
+                        <textarea name="message" id="" cols="30" rows="5" class="form-control is-valid" placeholder="Talk a little about you..." maxlength="600" required></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-outline-success mb-2">Send &nbsp;&nbsp; <i class="fas fa-paper-plane"></i> 
+                        </button>
+                        <a href="{% url "home" %}" class="btn btn-outline-danger mb-2 ms-2" title="Exit">
+                            <i class="fas fa-times"></i>
+                        </a>
+                        <a class="btn btn-outline-info mb-2 ms-2 border-info" title="Help" data-bs-target="#questionModel" data-bs-toggle="modal">
+                            <i class="fas fa-question"></i>
+                        </a>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+
+    <!--Loop to get backend values-->
+    {% for countdown in countdowns %}
+        <span class="text-center" id="timer" style="display:none;">{{ countdown.timer }}</span>
+        {% comment %} <span class="text-center" id="timer" style="display:none;">{{ countdown.timer|date: "M d, Y H:i:s" }}</span> {% endcomment %}
+    {% endfor %}
+
+    <!--Div waiting disabled-->
+    <div class="text-center" id="disabled" style="display: none;" >
+        <i class="text-info far fa-frown fa-10x"></i>
+        <h3 class="mt-5 text-light">Waiting List not Available</h3>
+    </div>
+
     <center>
         <button class="btn mt-2 watermark" disabled style="color: #e9e9e9">
             <img style="opacity: 0.2;" src="{% static "img/favicon.png" %}" alt="watermark">

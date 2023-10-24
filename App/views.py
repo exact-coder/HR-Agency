@@ -7,6 +7,7 @@ from .models import Registered_email,Support,Message,Notepad,Vacancies,Countdown
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -121,7 +122,13 @@ def support(request):
         # check if email exist in DB
         email = request.POST['email']
 
-        if Support.objects.filter(email=email).exists():
+        # If Candidate or User not exists, deny submit
+        if not Registered_email.objects.filter(email=email).exists() and not User.objects.filter(email=email).exists():
+            messages.warning(request, 'Email address not Registered !')
+            return HttpResponseRedirect('/support')
+
+        # if situation = 'Pending' deny new request
+        if Support.objects.filter(email=email, Situation = "Pending").exists():
             messages.info(request,".") #Argument inside the message can't be empty(It's because i put a dot (.))
             return HttpResponseRedirect('/support')
         else:

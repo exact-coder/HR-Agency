@@ -5,9 +5,14 @@
 {% block modal-id %} id="infoJobsModel" {% endblock modal-id %}
 
 <!-- Modal Title-->
-{% block modal-title %} 
-<img style="height:35px;width:35px;border-radius:12px;" src="{% static "img/exact.png" %}" alt=""> &nbsp;&nbsp; About Opportunities
-{% endblock modal-title %}
+{% for countdown in countdowns %}
+    {% block modal-title %} 
+    <img style="height:35px;width:35px;border-radius:12px;" src="{% static "img/exact.png" %}" alt=""> &nbsp;&nbsp; About Opportunities &nbsp;&nbsp;
+    <span class="text-pulse" id="notice"></span>
+    {% endblock modal-title %}
+
+{% endfor %}
+
 
 <!-- Modal Body-->
 {% block modal-body %}

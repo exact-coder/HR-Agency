@@ -137,5 +137,18 @@
     </center>
     {% endif %}
     {% endfor %}
+
+    <!--Message from backend (success)-->
+    {% for message in messages %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+        {% if message.tags == 'warning' %}
+            <script>
+                let msg = "{{ message }}";
+                swal("Denied !",msg,"warning")
+            </script>
+        {% endif %}
+    {% endfor %}
+
+    <br><br>
 {% endblock content %}
 

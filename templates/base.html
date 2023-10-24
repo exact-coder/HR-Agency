@@ -327,6 +327,13 @@
 
                 // Output
                 const timer = document.getElementById("timer").innerHTML = d + " days, " + ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+                //0 days, 19:36:16
+
+                if((timer < "0 days, 23:59:59")){
+                    document.getElementById("timer").style.color = "#dc3545";
+                    document.getElementById("notice").style.color = "red";
+                    document.getElementById("notice").innerHTML ="Last Day !"
+                }
 
                 // Statement
                 if(sub > 0) {
@@ -397,11 +404,17 @@
         //Call
         document.oninput = btnEnabled
     </script>
+    <!--Function to pulse the text-->
+    <script>
+        (function blink() {
+            $('.text-pulse').fadeOut(700).fadeIn(700, blink);
+        })();
+    </script>
 
 </body>
 </html>
 
 
 
-<!-- Ep-21 and len is 02.36min -->
+<!-- Ep-21 and len is 03.00min -->
 

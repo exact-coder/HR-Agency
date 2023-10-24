@@ -14,6 +14,8 @@
 </style>
 {% endblock bg-image %}
 
+{% block timeout %}{% endblock timeout %}
+
 {% comment %} Sidebar Links {% endcomment %}
 {% block sidebar-links %}
     <a href="{% url "home" %}" class="btn btn-warning">Home</a>
@@ -30,6 +32,7 @@
 
 <!--Page Content-->
 {% block content %}
+    {% for countdown in countdowns %}
     {% if request.user.is_superuser %}
     <div class="text-center text-info txt-sm" id="off-sup">
         <span class="fa-stack fa-7x">
@@ -133,5 +136,6 @@
         </button>
     </center>
     {% endif %}
+    {% endfor %}
 {% endblock content %}
 

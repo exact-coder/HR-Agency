@@ -148,7 +148,8 @@ def support(request):
                 return HttpResponseRedirect('/backend')
             
     else:
-        return render(request,"support.html")
+        myCountdown = Countdown.objects.all()
+        return render(request,"support.html",{'countdowns': myCountdown})
 
 # MESSAGE
 def add_message(request):

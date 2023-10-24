@@ -243,7 +243,7 @@ Others
     font-size: 100px;
 }
 /* Not Found design */
-#off-sup {
+#disabled,#off-sup {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -343,8 +343,8 @@ Responsive Design
     #candidate {
         font-size: 50px;
     }
-    /* Not Found design */
-    #off-sup {
+    /* Not Found and Wating list */
+    #disabled,#off-sup {
         font-size: 12px;
     }
     .E404{

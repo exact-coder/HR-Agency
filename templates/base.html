@@ -345,6 +345,9 @@
                     //Show the div (no waiting list)
                     $('#disabled').css("display","none");
 
+                    //Disable 'Candidate' option when countdown is over.
+                    $('option[value="Candidate"]').attr("disabled","disabled");
+
                     // Disable all job vacancies when countdown is over
                     $(".btn-off").prop("disabled",true).css({'color':'white','border-color':'white'});
 
@@ -352,7 +355,9 @@
                     $(".qty").css("display","none");
 
                     //Open the modal (all vacancies closed)
+                    '{% block timeout %}'
                     $("#closedAllTimer").modal('show');
+                    '{% endblock timeout %}'
 
                     // Disable the send button (inside the froms)
                     $(".btn-send").prop("disabled",true);
@@ -398,5 +403,5 @@
 
 
 
-<!-- Ep-21 and len is 02.20min -->
+<!-- Ep-21 and len is 02.36min -->
 

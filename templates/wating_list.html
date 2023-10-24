@@ -13,6 +13,8 @@
     }
 </style>
 {% endblock bg-image %}
+<!--Block timeout waiting modal dinied-->
+{% block timeout %}{% endblock timeout %}
 
 {% comment %} Sidebar Links {% endcomment %}
 {% block sidebar-links %}
@@ -26,7 +28,7 @@
 <!--Page Content-->
 {% block content %}
     <div class="container mt-5" style="width:95%">
-        <div class="enabled" style="display: none;">
+        <div id="enabled" style="display: none;">
             <h4 class="btn btn-lg border-info mb-3 text-light" style="width:100%;cursor: default;">
                 <i class="fas fa-user-clock"></i>&nbsp;&nbsp; Candidate Waiting List
             </h4>
